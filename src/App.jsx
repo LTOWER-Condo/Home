@@ -120,8 +120,12 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 lg:px-6 h-20 flex items-center justify-between">
-          <a href="#home" className="text-[#FF9644] font-bold text-xl tracking-wider cursor-pointer whitespace-nowrap">
-            L TOWER
+          <a href="#home" className="flex items-center cursor-pointer whitespace-nowrap">
+            <img 
+              src="./images/logo.png" 
+              alt="L Tower Logo" 
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </a>
           
           {/* Desktop Menu */}
