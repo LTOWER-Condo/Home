@@ -341,48 +341,55 @@ function ProjectTab({ project, children }) {
       {/* Split Layout Container */}
       <div className="flex-grow grid grid-cols-1 lg:grid-cols-2">
         
-        {/* LEFT SIDE: Visuals & Map (DESKTOP ONLY) */}
+        {/* LEFT SIDE: Visuals (DESKTOP ONLY) - Image & Gallery */}
         <div className="hidden lg:flex relative h-auto min-h-screen bg-[#0a0a0a] flex-col border-r border-[#34220a]/20">
            {/* Top Image */}
-           <div className="relative h-1/2 w-full overflow-hidden">
+           <div className="relative flex-grow w-full overflow-hidden">
              <img 
                src={project.image} 
                alt={project.title} 
                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
              />
-             {/* Gradient to blend image into the background/map area */}
+             {/* Gradient to blend image */}
              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/30 via-transparent to-[#0a0a0a]"></div>
            </div>
            
-           {/* Bottom Map */}
-           <div className="relative h-1/2 w-full bg-[#0a0a0a] p-4 lg:p-6 flex flex-col justify-center">
-             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#34220a]/50 shadow-2xl">
-                 <iframe
-                   title="Google Map"
-                   width="100%"
-                   height="100%"
-                   frameBorder="0"
-                   src={mapSrc}
-                   allowFullScreen
-                   className="transition-all duration-500 opacity-90 hover:opacity-100 grayscale-[20%] hover:grayscale-0"
-                 ></iframe>
-                 <a 
-                   href={project.mapLink} 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   className="absolute bottom-4 right-4 bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-2 px-4 rounded-sm shadow-xl flex items-center transition-colors duration-300 uppercase tracking-widest text-xs z-20"
-                 >
-                   Open Maps <ExternalLink className="w-3 h-3 ml-2" />
-                 </a>
-             </div>
+           {/* Bottom Gallery (Moved from Right) */}
+           <div className="relative w-full p-4 bg-[#0a0a0a] border-t border-[#34220a]/20">
+              <h3 className="text-white text-xs uppercase tracking-widest mb-4 flex items-center">
+                 <span className="w-8 h-[1px] bg-[#FF9644] mr-4"></span>
+                 Showroom Gallery
+              </h3>
+              <div className="overflow-hidden whitespace-nowrap mask-gradient relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)' }}>
+                 <div className="inline-block animate-marquee hover:pause-animation">
+                    {project.gallery.map((img, idx) => (
+                      <div 
+                        key={idx} 
+                        onClick={() => setLightboxIndex(idx)}
+                        className="inline-block w-40 h-28 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
+                      >
+                         <img src={img} alt="Gallery" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                      </div>
+                    ))}
+                    {project.gallery.map((img, idx) => (
+                      <div 
+                        key={`dup-${idx}`} 
+                        onClick={() => setLightboxIndex(idx)}
+                        className="inline-block w-40 h-28 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
+                      >
+                         <img src={img} alt="Gallery" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                      </div>
+                    ))}
+                 </div>
+              </div>
            </div>
         </div>
 
-        {/* RIGHT SIDE: Details & Gallery (MAIN MOBILE CONTAINER) */}
+        {/* RIGHT SIDE: Info (Mobile Container + Desktop Right) */}
         <div className="relative bg-[#0a0a0a] p-8 lg:p-16 flex flex-col justify-center overflow-hidden">
            
-           {/* 1. Logo (Replaces Number) */}
-           <div className="mb-8">
+           {/* 1. Logo (Visible on Mobile Only, removed on Desktop per request) */}
+           <div className="mb-8 block lg:hidden">
               <img src="./images/logo.png" alt="L Tower" className="h-16 w-auto object-contain opacity-90" />
            </div>
 
@@ -416,31 +423,29 @@ function ProjectTab({ project, children }) {
               </p>
            </div>
 
-           {/* 4. Auto-scrolling Gallery */}
-           <div className="relative w-full">
+           {/* 4. Auto-scrolling Gallery (MOBILE ONLY) */}
+           <div className="relative w-full block lg:hidden mb-12">
               <h3 className="text-white text-sm uppercase tracking-widest mb-6 flex items-center">
                  <span className="w-8 h-[1px] bg-[#FF9644] mr-4"></span>
                  Showroom Gallery
               </h3>
               
-              {/* CSS Marquee Implementation */}
               <div className="overflow-hidden whitespace-nowrap mask-gradient relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
                  <div className="inline-block animate-marquee hover:pause-animation">
                     {project.gallery.map((img, idx) => (
                       <div 
                         key={idx} 
                         onClick={() => setLightboxIndex(idx)}
-                        className="inline-block w-48 h-32 md:w-64 md:h-40 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
+                        className="inline-block w-48 h-32 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
                       >
                          <img src={img} alt="Gallery" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
                       </div>
                     ))}
-                    {/* Duplicate for seamless loop */}
                     {project.gallery.map((img, idx) => (
                       <div 
                         key={`dup-${idx}`} 
                         onClick={() => setLightboxIndex(idx)}
-                        className="inline-block w-48 h-32 md:w-64 md:h-40 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
+                        className="inline-block w-48 h-32 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
                       >
                          <img src={img} alt="Gallery" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
                       </div>
@@ -450,16 +455,16 @@ function ProjectTab({ project, children }) {
               <p className="text-xs text-gray-600 mt-2 text-right italic">Click image to expand</p>
            </div>
 
-           {/* 5. Map (MOBILE ONLY) */}
-           <div className="block lg:hidden w-full h-64 mt-12 rounded-2xl overflow-hidden border border-[#34220a]/50 relative shadow-2xl">
+           {/* 5. Map (Now on Right for Desktop, and Bottom for Mobile) */}
+           <div className="w-full h-64 lg:h-80 rounded-2xl overflow-hidden border border-[#34220a]/50 relative shadow-2xl">
                <iframe
-                 title="Google Map Mobile"
+                 title="Google Map"
                  width="100%"
                  height="100%"
                  frameBorder="0"
                  src={mapSrc}
                  allowFullScreen
-                 className="opacity-90"
+                 className="transition-all duration-500 opacity-90 hover:opacity-100 grayscale-[20%] hover:grayscale-0"
                ></iframe>
                <a 
                  href={project.mapLink} 
@@ -532,177 +537,6 @@ function ProjectTab({ project, children }) {
           100% { transform: translateX(-50%); }
         }
       `}</style>
-    </div>
-  );
-}
-
-function TypeSection({ setSelectedUnit }) {
-  return (
-    <div className="py-20 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-20">
-        <h2 className="text-4xl font-light text-white mb-4">Available Units</h2>
-        <p className="text-gray-300 max-w-2xl mx-auto">
-          Explore our exclusive collection of 10 distinct 2-floor luxury unit types. Each residence is meticulously crafted to elevate your living experience.
-        </p>
-        <div className="w-16 h-[1px] bg-[#FF9644] mx-auto mt-8"></div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {UNIT_TYPES.map((unit) => (
-          <div 
-            key={unit.id}
-            onClick={() => setSelectedUnit(unit)}
-            className="group cursor-pointer bg-[#34220a] border border-white/5 hover:border-[#FF9644]/40 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,150,68,0.15)]"
-          >
-            <div className="h-64 overflow-hidden relative">
-              <img 
-                src={unit.image} 
-                alt={unit.name} 
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute top-4 right-4 bg-[#0a0a0a]/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs text-[#FF9644]">
-                2 Floors
-              </div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-lg text-white mb-2 font-medium">{unit.name}</h3>
-              <div className="flex items-center space-x-4 text-sm text-gray-300 mb-4">
-                <span className="flex items-center"><BedDouble className="w-4 h-4 mr-1 text-[#FF9644]" /> {unit.beds}</span>
-                <span className="flex items-center"><Bath className="w-4 h-4 mr-1 text-[#FF9644]" /> {unit.baths}</span>
-                <span className="flex items-center"><Maximize2 className="w-4 h-4 mr-1 text-[#FF9644]" /> {unit.size}</span>
-              </div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#FF9644] group-hover:underline underline-offset-4">
-                View Details
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function AboutTab() {
-  const SOCIAL_LINKS = [
-    { icon: Phone, label: "Phone", value: "076 63 333 36", href: "tel:0766333336" },
-    { icon: Send, label: "Telegram", value: "@lsaleservice", href: "https://t.me/lsaleservice" },
-    { icon: Facebook, label: "Facebook", value: "L Tower Condo", href: "https://www.facebook.com/ltowercondo/" },
-    { icon: Instagram, label: "Instagram", value: "@l_tower_condo", href: "https://www.instagram.com/l_tower_condo/" },
-    { icon: Film, label: "TikTok", value: "@ltowercondo", href: "https://www.tiktok.com/@ltowercondo" },
-  ];
-
-  return (
-    <div className="animate-in fade-in duration-700 min-h-[calc(100vh-10rem)] flex items-center justify-center py-20 px-6">
-      <div className="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        
-        {/* Left Side: Info */}
-        <div>
-          <h2 className="text-4xl font-light text-white mb-4">Get In Touch</h2>
-          <p className="text-gray-300 mb-10">
-            Interested in the premium 2-floor units at គម្រោង ព្រះមុនីវង្ស 2? Contact our dedicated sales team through any of the channels below to schedule a private viewing.
-          </p>
-          
-          <div className="space-y-6">
-            {SOCIAL_LINKS.map((link, idx) => (
-              <a 
-                key={idx}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center group"
-              >
-                <div className="w-12 h-12 rounded-full bg-[#34220a] border border-white/10 flex items-center justify-center group-hover:border-[#FF9644] group-hover:bg-[#FF9644]/10 transition-all duration-300">
-                  <link.icon className="w-5 h-5 text-gray-400 group-hover:text-[#FF9644] transition-colors" />
-                </div>
-                <div className="ml-6">
-                  <p className="text-sm text-gray-400 uppercase tracking-widest">{link.label}</p>
-                  <p className="text-lg text-white group-hover:text-[#FF9644] transition-colors">{link.value}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Side: Visual */}
-        <div className="relative h-[600px] hidden lg:block rounded-sm overflow-hidden border border-white/10">
-           <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" 
-              alt="Building Facade" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent"></div>
-            <div className="absolute bottom-8 left-8">
-              <div className="flex items-center text-[#FF9644] mb-2">
-                <MapPin className="w-5 h-5 mr-2" />
-                <span className="uppercase tracking-widest text-sm">Location</span>
-              </div>
-              <p className="text-white text-lg">Monivong Boulevard<br/>Phnom Penh, Cambodia</p>
-            </div>
-        </div>
-
-      </div>
-    </div>
-  );
-}
-
-function UnitModal({ unit, onClose }) {
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
-      <div 
-        className="absolute inset-0 bg-[#0a0a0a]/90 backdrop-blur-sm"
-        onClick={onClose}
-      ></div>
-      
-      <div className="relative bg-[#34220a] border border-white/10 w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-sm flex flex-col md:flex-row shadow-2xl">
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 bg-[#0a0a0a]/50 hover:bg-[#FF9644] rounded-full flex items-center justify-center text-white transition-colors duration-300"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        <div className="w-full md:w-1/2 h-64 md:h-auto min-h-[400px]">
-          <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
-        </div>
-        
-        <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-          <span className="inline-block px-3 py-1 bg-[#FF9644]/10 text-[#FF9644] font-semibold border border-[#FF9644]/30 text-xs uppercase tracking-widest w-fit mb-6">
-            Premium 2-Floor Unit
-          </span>
-          <h2 className="text-3xl font-medium text-white mb-6">{unit.name}</h2>
-          
-          <div className="grid grid-cols-2 gap-6 mb-8 border-y border-white/10 py-6">
-            <div>
-              <p className="text-sm text-gray-400 mb-1">Total Area</p>
-              <p className="text-xl text-white font-medium flex items-center"><Maximize2 className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.size}</p>
-            </div>
-            <div>
-              <p className="text-sm text-gray-400 mb-1">Bedrooms</p>
-              <p className="text-xl text-white font-medium flex items-center"><BedDouble className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.beds} Rooms</p>
-            </div>
-            <div>
-              <p className="text-sm text-gray-400 mb-1">Bathrooms</p>
-              <p className="text-xl text-white font-medium flex items-center"><Bath className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.baths} Baths</p>
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold text-white mb-3">Description</h3>
-            <p className="text-gray-300 leading-relaxed">
-              {unit.desc} The two-story layout creates an unparalleled sense of space and privacy, separating the elegant living and dining areas on the lower floor from the tranquil private quarters above.
-            </p>
-          </div>
-
-          <a 
-            href="https://t.me/lsaleservice" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="block w-full text-center bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm"
-          >
-            Inquire About This Unit
-          </a>
-        </div>
-      </div>
     </div>
   );
 }
