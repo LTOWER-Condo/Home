@@ -342,36 +342,39 @@ function ProjectTab({ project, children }) {
       <div className="flex-grow grid grid-cols-1 lg:grid-cols-2">
         
         {/* LEFT SIDE: Visuals & Map */}
-        <div className="relative h-[60vh] lg:h-auto lg:min-h-screen bg-[#000] flex flex-col">
+        <div className="relative h-[60vh] lg:h-auto lg:min-h-screen bg-[#0a0a0a] flex flex-col border-r border-[#34220a]/20">
            {/* Top Image */}
-           <div className="relative h-1/2 overflow-hidden">
+           <div className="relative h-1/2 w-full overflow-hidden">
              <img 
                src={project.image} 
                alt={project.title} 
-               className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
+               className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent lg:hidden"></div>
+             {/* Gradient to blend image into the background/map area */}
+             <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/30 via-transparent to-[#0a0a0a]"></div>
            </div>
            
            {/* Bottom Map */}
-           <div className="relative h-1/2 w-full bg-[#111] border-t border-[#34220a]">
-             <iframe
-               title="Google Map"
-               width="100%"
-               height="100%"
-               frameBorder="0"
-               src={mapSrc}
-               allowFullScreen
-               className="transition-all duration-500 opacity-90 hover:opacity-100"
-             ></iframe>
-             <a 
-               href={project.mapLink} 
-               target="_blank" 
-               rel="noopener noreferrer"
-               className="absolute bottom-6 right-6 bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-3 px-6 rounded-sm shadow-xl flex items-center transition-colors duration-300 uppercase tracking-widest text-xs z-20"
-             >
-               Open Maps <ExternalLink className="w-4 h-4 ml-2" />
-             </a>
+           <div className="relative h-1/2 w-full bg-[#0a0a0a] p-4 lg:p-6 flex flex-col justify-center">
+             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#34220a]/50 shadow-2xl">
+                 <iframe
+                   title="Google Map"
+                   width="100%"
+                   height="100%"
+                   frameBorder="0"
+                   src={mapSrc}
+                   allowFullScreen
+                   className="transition-all duration-500 opacity-90 hover:opacity-100 grayscale-[20%] hover:grayscale-0"
+                 ></iframe>
+                 <a 
+                   href={project.mapLink} 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="absolute bottom-4 right-4 bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-2 px-4 rounded-sm shadow-xl flex items-center transition-colors duration-300 uppercase tracking-widest text-xs z-20"
+                 >
+                   Open Maps <ExternalLink className="w-3 h-3 ml-2" />
+                 </a>
+             </div>
            </div>
         </div>
 
