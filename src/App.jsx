@@ -41,7 +41,7 @@ const PROJECT_HISTORY = [
   {
     id: 1,
     title: "L Tower 1: គម្រោង 271",
-    year: "2019",
+    year: "2021",
     status: "Sold Out",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
     link: "#ltower-1",
@@ -54,7 +54,7 @@ const PROJECT_HISTORY = [
   {
     id: 2,
     title: "L Tower 2: គម្រោង ទួលទំពូង",
-    year: "2021",
+    year: "2024",
     status: "Sold Out",
     image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800",
     link: "#ltower-2",
@@ -67,7 +67,7 @@ const PROJECT_HISTORY = [
   {
     id: 3,
     title: "L Tower 3: គម្រោង ព្រះមុនីវង្ស",
-    year: "2023",
+    year: "2025",
     status: "Sold Out",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
     link: "#ltower-3",
@@ -80,12 +80,12 @@ const PROJECT_HISTORY = [
   {
     id: 4,
     title: "គម្រោង ព្រះមុនីវង្ស 2",
-    year: "Ongoing",
+    year: "2026",
     status: "Now Selling",
     image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800",
     link: "#monivong-2",
     location: "Monivong Boulevard, Phnom Penh",
-    mapQuery: "Monivong Boulevard, Phnom Penh",
+    mapQuery: "L Tower 3, Phnom Penh",
     description: "The pinnacle of our vision, featuring exclusive 2-floor duplex units. Designed for those who demand the extraordinary, this project redefines luxury with double-height ceilings, private terraces, and world-class facilities.",
     mapLink: "https://maps.app.goo.gl/QeCcmqzLXcf56hNs8",
     gallery: GALLERY_IMAGES
@@ -362,7 +362,7 @@ function ProjectTab({ project, children }) {
                frameBorder="0"
                src={mapSrc}
                allowFullScreen
-               className="grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100"
+               className="transition-all duration-500 opacity-90 hover:opacity-100"
              ></iframe>
              <a 
                href={project.mapLink} 
