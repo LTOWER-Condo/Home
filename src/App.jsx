@@ -308,6 +308,24 @@ function HomeTab() {
 
 function ProjectTab({ project, children }) {
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  
+  // Gallery Pagination State
+  const IMAGES_PER_PAGE = 6;
+  const [galleryPage, setGalleryPage] = useState(0);
+  const totalPages = Math.ceil(project.gallery.length / IMAGES_PER_PAGE);
+
+  const handleGalleryNext = () => {
+    setGalleryPage((prev) => (prev + 1) % totalPages);
+  };
+
+  const handleGalleryPrev = () => {
+    setGalleryPage((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  const currentGalleryImages = project.gallery.slice(
+    galleryPage * IMAGES_PER_PAGE, 
+    (galleryPage + 1) * IMAGES_PER_PAGE
+  );
 
   // Use mapQuery if available, otherwise fallback to location. 
   // Increased zoom (z=15) to focus on the pin.
@@ -365,9 +383,9 @@ function ProjectTab({ project, children }) {
         <div className="relative bg-[#0a0a0a] p-8 lg:p-16 flex flex-col justify-center overflow-hidden lg:col-span-2">
            
            {/* 1. Logo (Visible on Mobile Only) */}
-           <div className="mb-8 block lg:hidden">
+           {/* <div className="mb-8 block lg:hidden">
               <img src="./images/logo.png" alt="L Tower" className="h-16 w-auto object-contain opacity-90" />
-           </div>
+           </div> */}
 
            {/* 2. Big Image (MOBILE ONLY) */}
            <div className="block lg:hidden w-full h-64 mb-8 rounded-sm overflow-hidden relative shadow-2xl border border-[#34220a]/30">
@@ -397,36 +415,39 @@ function ProjectTab({ project, children }) {
               </p>
            </div>
 
-           {/* 4. Gallery (Desktop: Big, Mobile: Auto-scroll) */}
+           {/* 4. Gallery (Desktop & Mobile) */}
            <div className="relative w-full mb-12">
-              <h3 className="text-white text-sm uppercase tracking-widest mb-6 flex items-center">
-                 <span className="w-8 h-[1px] bg-[#FF9644] mr-4"></span>
-                 Showroom Gallery
-              </h3>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-white text-sm uppercase tracking-widest flex items-center">
+                   <span className="w-8 h-[1px] bg-[#FF9644] mr-4"></span>
+                   Showroom Gallery
+                </h3>
+                {/* Navigation Arrows for Desktop Grid */}
+                <div className="hidden lg:flex items-center gap-2">
+                   <button onClick={handleGalleryPrev} className="p-1 hover:text-[#FF9644] transition-colors"><ChevronLeft className="w-5 h-5"/></button>
+                   <button onClick={handleGalleryNext} className="p-1 hover:text-[#FF9644] transition-colors"><ChevronRight className="w-5 h-5"/></button>
+                </div>
+              </div>
               
-              {/* Desktop Grid Gallery - Bigger Images */}
-              <div className="hidden lg:grid grid-cols-2 gap-4">
-                 {project.gallery.slice(0, 4).map((img, idx) => (
-                    <div 
-                      key={idx} 
-                      onClick={() => setLightboxIndex(idx)}
-                      className="h-64 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300 relative group"
-                    >
-                       <img src={img} alt="Gallery" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                 ))}
-                 <div className="col-span-2 text-right">
-                    <button 
-                      onClick={() => setLightboxIndex(4)} 
-                      className="text-[#FF9644] text-sm uppercase tracking-widest hover:text-white transition-colors"
-                    >
-                      View All Photos &rarr;
-                    </button>
-                 </div>
+              {/* Desktop Grid Gallery - 3 Cols, 2 Rows (6 Images), Smaller Size */}
+              <div className="hidden lg:grid grid-cols-3 gap-3">
+                 {currentGalleryImages.map((img, idx) => {
+                    // Calculate actual index in full gallery for lightbox
+                    const realIndex = (galleryPage * IMAGES_PER_PAGE) + idx;
+                    return (
+                      <div 
+                        key={idx} 
+                        onClick={() => setLightboxIndex(realIndex)}
+                        className="h-32 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300 relative group"
+                      >
+                         <img src={img} alt="Gallery" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                      </div>
+                    );
+                 })}
               </div>
 
-              {/* Mobile Auto-scrolling Gallery */}
+              {/* Mobile Auto-scrolling Gallery (Unchanged for Mobile) */}
               <div className="block lg:hidden overflow-hidden whitespace-nowrap mask-gradient relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
                  <div className="inline-block animate-marquee hover:pause-animation">
                     {project.gallery.map((img, idx) => (
@@ -461,7 +482,7 @@ function ProjectTab({ project, children }) {
                  frameBorder="0"
                  src={mapSrc}
                  allowFullScreen
-                 className="transition-all duration-500 opacity-90 hover:opacity-100"
+                 className="transition-all duration-500 opacity-90 hover:opacity-100 grayscale-[20%] hover:grayscale-0"
                ></iframe>
                <a 
                  href={project.mapLink} 
