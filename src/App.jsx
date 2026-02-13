@@ -341,8 +341,8 @@ function ProjectTab({ project, children }) {
       {/* Split Layout Container */}
       <div className="flex-grow grid grid-cols-1 lg:grid-cols-2">
         
-        {/* LEFT SIDE: Visuals & Map */}
-        <div className="relative h-[60vh] lg:h-auto lg:min-h-screen bg-[#0a0a0a] flex flex-col border-r border-[#34220a]/20">
+        {/* LEFT SIDE: Visuals & Map (DESKTOP ONLY) */}
+        <div className="hidden lg:flex relative h-auto min-h-screen bg-[#0a0a0a] flex-col border-r border-[#34220a]/20">
            {/* Top Image */}
            <div className="relative h-1/2 w-full overflow-hidden">
              <img 
@@ -378,13 +378,25 @@ function ProjectTab({ project, children }) {
            </div>
         </div>
 
-        {/* RIGHT SIDE: Details & Gallery */}
+        {/* RIGHT SIDE: Details & Gallery (MAIN MOBILE CONTAINER) */}
         <div className="relative bg-[#0a0a0a] p-8 lg:p-16 flex flex-col justify-center overflow-hidden">
            
+           {/* 1. Logo (Replaces Number) */}
+           <div className="mb-8">
+              <img src="./images/logo.png" alt="L Tower" className="h-16 w-auto object-contain opacity-90" />
+           </div>
+
+           {/* 2. Big Image (MOBILE ONLY) */}
+           <div className="block lg:hidden w-full h-64 mb-8 rounded-sm overflow-hidden relative shadow-2xl border border-[#34220a]/30">
+             <img 
+               src={project.image} 
+               alt={project.title} 
+               className="w-full h-full object-cover"
+             />
+           </div>
+
+           {/* 3. Description */}
            <div className="mb-12">
-              <div className="w-16 h-16 bg-[#34220a] rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,150,68,0.1)]">
-                <span className="text-[#FF9644] text-xl font-bold">{project.id}</span>
-              </div>
               <h1 className="text-4xl md:text-5xl font-semibold text-white mb-4 leading-tight">{project.title}</h1>
               
               <div className="flex flex-wrap items-center gap-4 mb-8">
@@ -404,7 +416,7 @@ function ProjectTab({ project, children }) {
               </p>
            </div>
 
-           {/* Auto-scrolling Gallery */}
+           {/* 4. Auto-scrolling Gallery */}
            <div className="relative w-full">
               <h3 className="text-white text-sm uppercase tracking-widest mb-6 flex items-center">
                  <span className="w-8 h-[1px] bg-[#FF9644] mr-4"></span>
@@ -436,6 +448,27 @@ function ProjectTab({ project, children }) {
                  </div>
               </div>
               <p className="text-xs text-gray-600 mt-2 text-right italic">Click image to expand</p>
+           </div>
+
+           {/* 5. Map (MOBILE ONLY) */}
+           <div className="block lg:hidden w-full h-64 mt-12 rounded-2xl overflow-hidden border border-[#34220a]/50 relative shadow-2xl">
+               <iframe
+                 title="Google Map Mobile"
+                 width="100%"
+                 height="100%"
+                 frameBorder="0"
+                 src={mapSrc}
+                 allowFullScreen
+                 className="opacity-90"
+               ></iframe>
+               <a 
+                 href={project.mapLink} 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="absolute bottom-4 right-4 bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-2 px-4 rounded-sm shadow-xl flex items-center transition-colors duration-300 uppercase tracking-widest text-xs z-20"
+               >
+                 Open Maps <ExternalLink className="w-3 h-3 ml-2" />
+               </a>
            </div>
            
            {/* Lightbox Modal */}
