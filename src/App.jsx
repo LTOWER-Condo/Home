@@ -853,10 +853,12 @@ function AboutTab() {
 
 function UnitModal({ unit, onClose }) {
   const [imgIdx, setImgIdx] = useState(0);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   // Reset image index when opening a new unit
   useEffect(() => {
     setImgIdx(0);
+    setIsFullScreen(false);
   }, [unit]);
 
   const nextImg = (e) => {
@@ -884,24 +886,36 @@ function UnitModal({ unit, onClose }) {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="w-full md:w-1/2 h-64 md:h-auto min-h-[400px] relative group bg-black">
-          <img src={unit.images[imgIdx]} alt={unit.name} className="w-full h-full object-contain md:object-cover" />
+        {/* Left Side Image Section with Click to Expand */}
+        <div 
+          className="w-full md:w-1/2 h-64 md:h-auto min-h-[400px] relative group bg-black cursor-pointer"
+          onClick={() => setIsFullScreen(true)}
+        >
+          <img src={unit.images[imgIdx]} alt={unit.name} className="w-full h-full object-contain md:object-cover group-hover:opacity-80 transition-opacity" />
           
+          {/* Overlay text to hint clicking */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-black/20">
+             <div className="bg-black/60 text-white px-4 py-2 rounded-full backdrop-blur-sm flex items-center gap-2">
+                <Maximize2 className="w-4 h-4 text-[#FF9644]" /> 
+                <span className="text-sm uppercase tracking-widest">ពង្រីករូបភាព</span>
+             </div>
+          </div>
+
           {unit.images.length > 1 && (
             <>
               <button 
                 onClick={prevImg}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#FF9644] text-white p-2 rounded-full transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#FF9644] text-white p-2 rounded-full transition-colors z-20"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button 
                 onClick={nextImg}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#FF9644] text-white p-2 rounded-full transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#FF9644] text-white p-2 rounded-full transition-colors z-20"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 px-3 py-1 rounded-full text-xs text-white">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 px-3 py-1 rounded-full text-xs text-white z-20">
                 {imgIdx + 1} / {unit.images.length}
               </div>
             </>
@@ -948,6 +962,49 @@ function UnitModal({ unit, onClose }) {
           </a>
         </div>
       </div>
+
+      {/* Full Screen Image Modal */}
+      {isFullScreen && (
+        <div 
+          className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300"
+          onClick={() => setIsFullScreen(false)}
+        >
+          <button className="absolute top-6 right-6 text-white hover:text-[#FF9644] z-50">
+            <X className="w-8 h-8" />
+          </button>
+
+          {unit.images.length > 1 && (
+            <>
+              <button 
+                onClick={(e) => { e.stopPropagation(); prevImg(e); }}
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white hover:text-[#FF9644] bg-black/50 p-2 rounded-full transition-colors z-50"
+              >
+                <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
+              </button>
+              
+              <button 
+                onClick={(e) => { e.stopPropagation(); nextImg(e); }}
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white hover:text-[#FF9644] bg-black/50 p-2 rounded-full transition-colors z-50"
+              >
+                <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
+              </button>
+            </>
+          )}
+
+          <img 
+            src={unit.images[imgIdx]} 
+            alt={`${unit.name} full screen`} 
+            className="max-w-full max-h-[90vh] object-contain shadow-2xl rounded-sm border border-[#34220a]"
+            onClick={(e) => e.stopPropagation()} 
+          />
+          
+          {unit.images.length > 1 && (
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm">
+              {imgIdx + 1} / {unit.images.length}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
