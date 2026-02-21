@@ -43,7 +43,7 @@ const PROJECT_HISTORY = [
     title: "L Tower 1: គម្រោង 271",
     year: "2021",
     status: "Sold Out",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
+    image: "./images/LTOWER1.jpg",
     link: "#ltower-1",
     location: "Street 271, Phnom Penh",
     mapQuery: "L Tower 1, Phnom Penh", 
@@ -56,7 +56,7 @@ const PROJECT_HISTORY = [
     title: "L Tower 2: គម្រោង ទួលទំពូង",
     year: "2024",
     status: "Sold Out",
-    image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800",
+    image: "./images/LTOWER2.jpg",
     link: "#ltower-2",
     location: "Toul Tom Poung, Phnom Penh",
     mapQuery: "L Tower 2, Phnom Penh", 
@@ -69,7 +69,7 @@ const PROJECT_HISTORY = [
     title: "L Tower 3: គម្រោង ព្រះមុនីវង្ស",
     year: "2025",
     status: "Sold Out",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+    image: "./images/LTOWER3.jpg",
     link: "#ltower-3",
     location: "Monivong Boulevard, Phnom Penh",
     mapQuery: "L Tower 3, Phnom Penh", 
@@ -82,7 +82,7 @@ const PROJECT_HISTORY = [
     title: "គម្រោង ព្រះមុនីវង្ស 2",
     year: "2026",
     status: "Now Selling",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800",
+    image: "./images/cover.jpg",
     link: "#monivong-2",
     location: "Monivong Boulevard, Phnom Penh",
     mapQuery: "L Tower 3, Phnom Penh",
@@ -93,16 +93,16 @@ const PROJECT_HISTORY = [
 ];
 
 const UNIT_TYPES = [
-  { id: 1, name: "Type A - Royal Duplex", beds: 3, baths: 3, size: "185 sqm", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000", desc: "A majestic 2-floor unit with sweeping city views, double-height living areas, and premium finishes." },
-  { id: 2, name: "Type B - Grand Duplex", beds: 3, baths: 2, size: "160 sqm", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000", desc: "Elegant layout featuring a floating staircase, expansive master suite, and an open-concept kitchen." },
-  { id: 3, name: "Type C - Premier Duplex", beds: 2, baths: 2, size: "140 sqm", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000", desc: "Perfectly balanced living space with floor-to-ceiling windows and a private balcony on the second level." },
-  { id: 4, name: "Type D - Executive Duplex", beds: 2, baths: 2, size: "135 sqm", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000", desc: "Designed for the modern executive, featuring a dedicated home office space and luxury master bath." },
-  { id: 5, name: "Type E - Luxury Loft", beds: 1, baths: 2, size: "110 sqm", image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000", desc: "A spacious 1-bedroom loft with double-height ceilings, perfect for entertaining guests." },
-  { id: 6, name: "Type F - Signature Loft", beds: 1, baths: 1, size: "95 sqm", image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000", desc: "Intimate yet open, offering a serene escape above the bustling city with premium imported fixtures." },
-  { id: 7, name: "Type G - Elite Penthouse", beds: 4, baths: 4, size: "250 sqm", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000", desc: "The crown jewel. A massive 2-floor penthouse with a private terrace and unobstructed 360-degree views." },
-  { id: 8, name: "Type H - Crown Penthouse", beds: 3, baths: 3, size: "220 sqm", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1000", desc: "Ultra-luxury penthouse living with a private elevator entrance and custom marble interiors." },
-  { id: 9, name: "Type I - Urban Duplex", beds: 2, baths: 2, size: "125 sqm", image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000", desc: "Chic and contemporary 2-floor unit designed for the ultimate urban lifestyle." },
-  { id: 10, name: "Type J - Horizon Duplex", beds: 2, baths: 2, size: "130 sqm", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000", desc: "Experience the horizon with expansive eastern-facing windows to catch the morning sunrise." }
+  { id: 1, name: "Type F - Royal Duplex", beds: 3, baths: 3, size: "185 sqm", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000", desc: "A majestic 2-floor unit with sweeping city views, double-height living areas, and premium finishes." },
+  { id: 2, name: "Type L - Grand Duplex", beds: 3, baths: 2, size: "160 sqm", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000", desc: "Elegant layout featuring a floating staircase, expansive master suite, and an open-concept kitchen." },
+  { id: 3, name: "Type S - Premier Duplex", beds: 2, baths: 2, size: "140 sqm", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000", desc: "Perfectly balanced living space with floor-to-ceiling windows and a private balcony on the second level." },
+  { id: 4, name: "Type T - Executive Duplex", beds: 2, baths: 2, size: "135 sqm", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000", desc: "Designed for the modern executive, featuring a dedicated home office space and luxury master bath." },
+  { id: 5, name: "Type U - Luxury Loft", beds: 1, baths: 2, size: "110 sqm", image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000", desc: "A spacious 1-bedroom loft with double-height ceilings, perfect for entertaining guests." },
+  { id: 6, name: "Type V - Signature Loft", beds: 1, baths: 1, size: "95 sqm", image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000", desc: "Intimate yet open, offering a serene escape above the bustling city with premium imported fixtures." },
+  { id: 7, name: "Type W - Elite Penthouse", beds: 4, baths: 4, size: "250 sqm", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000", desc: "The crown jewel. A massive 2-floor penthouse with a private terrace and unobstructed 360-degree views." },
+  { id: 8, name: "Type X - Crown Penthouse", beds: 3, baths: 3, size: "220 sqm", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1000", desc: "Ultra-luxury penthouse living with a private elevator entrance and custom marble interiors." },
+  { id: 9, name: "Type Y - Urban Duplex", beds: 2, baths: 2, size: "125 sqm", image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000", desc: "Chic and contemporary 2-floor unit designed for the ultimate urban lifestyle." },
+  { id: 10, name: "Type Z - Horizon Duplex", beds: 2, baths: 2, size: "130 sqm", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000", desc: "Experience the horizon with expansive eastern-facing windows to catch the morning sunrise." }
 ];
 
 const TABS = [
@@ -239,7 +239,7 @@ function HomeTab() {
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ 
-            backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000')",
+            backgroundImage: "url('./images/cover.jpg')",
             transform: "scale(1.05)"
           }}
         >
