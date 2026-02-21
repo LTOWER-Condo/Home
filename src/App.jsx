@@ -93,16 +93,196 @@ const PROJECT_HISTORY = [
 ];
 
 const UNIT_TYPES = [
-  { id: 'F', name: "Type F - Corner Duplex", beds: 2, baths: 2, size: "120 sqm", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000", desc: "Exclusive corner unit featuring a living room, kitchen/dining area, veranda, and 2 bathrooms (1 downstairs, 1 upstairs)." },
-  { id: 'L', name: "Type L - Standard Duplex", beds: 2, baths: 1, size: "95 sqm", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000", desc: "Comfortable layout with a living area, kitchen/dining, veranda, and 1 bathroom located on the upper floor." },
-  { id: 'S', name: "Type S - Urban Loft", beds: 1, baths: 1, size: "65 sqm", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000", desc: "Cozy 1-bedroom loft featuring a living room, kitchen/dining, veranda, and 1 bathroom on the upper floor." },
-  { id: 'T', name: "Type T - Premier Duplex", beds: 2, baths: 2, size: "105 sqm", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000", desc: "Well-balanced 2-bedroom unit with living area, kitchen/dining, veranda, and 2 bathrooms." },
-  { id: 'U', name: "Type U - City Duplex", beds: 2, baths: 1, size: "90 sqm", image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000", desc: "Practical 2-bedroom layout with a living room, kitchen/dining, veranda, and 1 shared bathroom upstairs." },
-  { id: 'V', name: "Type V - Executive Duplex", beds: 2, baths: 2, size: "100 sqm", image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000", desc: "Premium 2-bedroom space with a living room, kitchen/dining, veranda, and 2 bathrooms." },
-  { id: 'W', name: "Type W - Family Suite", beds: 3, baths: 2, size: "140 sqm", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000", desc: "Spacious 3-bedroom layout ideal for families, featuring a living room, kitchen/dining, veranda, and 2 bathrooms (1 downstairs, 1 upstairs)." },
-  { id: 'X', name: "Type X - Grand Suite", beds: 3, baths: 2, size: "145 sqm", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1000", desc: "Expansive 3-bedroom living with a spacious living room, kitchen/dining, veranda, and 2 bathrooms (1 downstairs, 1 upstairs)." },
-  { id: 'Y', name: "Type Y - Elite Suite", beds: 3, baths: 2, size: "150 sqm", image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000", desc: "Luxurious 3-bedroom layout offering ample space, living room, kitchen/dining, veranda, and 2 bathrooms (1 downstairs, 1 upstairs)." },
-  { id: 'Z', name: "Type Z - Horizon Duplex", beds: 2, baths: 2, size: "105 sqm", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000", desc: "Modern 2-bedroom duplex offering a comfortable living room, kitchen/dining, veranda, and 2 bathrooms." }
+  { 
+    id: 'F', 
+    name: "ប្រភេទF", 
+    beds: 2, 
+    baths: 2, 
+    size: "88.50 sqm", 
+    images: ["./images/F.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទF 88.50ម៉ែត្រការ៉េ (77,50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L', 
+    name: "ប្រភេទLT", 
+    beds: 3, 
+    baths: 3, 
+    size: "101 sqm", 
+    images: ["./images/LT.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទLT 101ម៉ែត្រការ៉េ (88 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង3",
+      "បន្ទប់ទឹក3",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'S', 
+    name: "ប្រភេទS1,T2", 
+    beds: 2, 
+    baths: 2, 
+    size: "77 sqm", 
+    images: ["./images/S1,T2.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទS1,T2 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'T', 
+    name: "ប្រភេទT,T3", 
+    beds: 2, 
+    baths: 2, 
+    size: "77 sqm", 
+    images: ["./images/T,T3.jpg", "./images/T1.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទT,T3 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'U', 
+    name: "ប្រភេទU", 
+    beds: 2, 
+    baths: 1, 
+    size: "70 sqm", 
+    images: ["./images/U.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទU 70ម៉ែត្រការ៉េ (61 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'V', 
+    name: "ប្រភេទV1", 
+    beds: 2, 
+    baths: 2, 
+    size: "77 sqm", 
+    images: ["./images/V1.jpg", "./images/V2.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទV1 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'W', 
+    name: "ប្រភេទW", 
+    beds: 3, 
+    baths: 2, 
+    size: "82 sqm", 
+    images: ["./images/W.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទW 82ម៉ែត្រការ៉េ (71.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង3",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'X', 
+    name: "ប្រភេទX", 
+    beds: 3, 
+    baths: 2, 
+    size: "91 sqm", 
+    images: ["./images/X.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទX 91ម៉ែត្រការ៉េ (79.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង3",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'Y', 
+    name: "ប្រភេទY", 
+    beds: 3, 
+    baths: 2, 
+    size: "93.50 sqm", 
+    images: ["./images/Y.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទY 93.50ម៉ែត្រការ៉េ (81.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង3",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'Z', 
+    name: "ប្រភេទZ", 
+    beds: 2, 
+    baths: 2, 
+    size: "74.50 sqm", 
+    images: ["./images/Z.jpg"], 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទZ 74.50ម៉ែត្រការ៉េ (65 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  }
 ];
 
 const TABS = [
@@ -579,7 +759,7 @@ function TypeSection({ setSelectedUnit }) {
           >
             <div className="h-64 overflow-hidden relative">
               <img 
-                src={unit.image} 
+                src={unit.images[0]} 
                 alt={unit.name} 
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               />
@@ -592,7 +772,7 @@ function TypeSection({ setSelectedUnit }) {
               <div className="flex items-center space-x-4 text-sm text-gray-300 mb-4">
                 <span className="flex items-center"><BedDouble className="w-4 h-4 mr-1 text-[#FF9644]" /> {unit.beds}</span>
                 <span className="flex items-center"><Bath className="w-4 h-4 mr-1 text-[#FF9644]" /> {unit.baths}</span>
-                <span className="flex items-center"><Maximize2 className="w-4 h-4 mr-1 text-[#FF9644]" /> {unit.size}</span>
+                <span className="flex items-center"><Maximize2 className="w-4 h-4 mr-1 text-[#FF9644]" /> {unit.size.split(' ')[0]}</span>
               </div>
               <p className="text-xs font-bold uppercase tracking-wider text-[#FF9644] group-hover:underline underline-offset-4">
                 View Details
@@ -672,6 +852,23 @@ function AboutTab() {
 }
 
 function UnitModal({ unit, onClose }) {
+  const [imgIdx, setImgIdx] = useState(0);
+
+  // Reset image index when opening a new unit
+  useEffect(() => {
+    setImgIdx(0);
+  }, [unit]);
+
+  const nextImg = (e) => {
+    e.stopPropagation();
+    setImgIdx((prev) => (prev + 1) % unit.images.length);
+  };
+
+  const prevImg = (e) => {
+    e.stopPropagation();
+    setImgIdx((prev) => (prev - 1 + unit.images.length) % unit.images.length);
+  };
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
       <div 
@@ -687,8 +884,28 @@ function UnitModal({ unit, onClose }) {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="w-full md:w-1/2 h-64 md:h-auto min-h-[400px]">
-          <img src={unit.image} alt={unit.name} className="w-full h-full object-cover" />
+        <div className="w-full md:w-1/2 h-64 md:h-auto min-h-[400px] relative group bg-black">
+          <img src={unit.images[imgIdx]} alt={unit.name} className="w-full h-full object-contain md:object-cover" />
+          
+          {unit.images.length > 1 && (
+            <>
+              <button 
+                onClick={prevImg}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#FF9644] text-white p-2 rounded-full transition-colors"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button 
+                onClick={nextImg}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#FF9644] text-white p-2 rounded-full transition-colors"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 px-3 py-1 rounded-full text-xs text-white">
+                {imgIdx + 1} / {unit.images.length}
+              </div>
+            </>
+          )}
         </div>
         
         <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
@@ -699,24 +916,26 @@ function UnitModal({ unit, onClose }) {
           
           <div className="grid grid-cols-2 gap-6 mb-8 border-y border-white/10 py-6">
             <div>
-              <p className="text-sm text-gray-400 mb-1">Total Area</p>
+              <p className="text-sm text-gray-400 mb-1">ទំហំសរុប (Total Area)</p>
               <p className="text-xl text-white font-medium flex items-center"><Maximize2 className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.size}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-400 mb-1">Bedrooms</p>
-              <p className="text-xl text-white font-medium flex items-center"><BedDouble className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.beds} Rooms</p>
+              <p className="text-sm text-gray-400 mb-1">បន្ទប់គេង (Bedrooms)</p>
+              <p className="text-xl text-white font-medium flex items-center"><BedDouble className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.beds} បន្ទប់</p>
             </div>
             <div>
-              <p className="text-sm text-gray-400 mb-1">Bathrooms</p>
-              <p className="text-xl text-white font-medium flex items-center"><Bath className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.baths} Baths</p>
+              <p className="text-sm text-gray-400 mb-1">បន្ទប់ទឹក (Bathrooms)</p>
+              <p className="text-xl text-white font-medium flex items-center"><Bath className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.baths} បន្ទប់</p>
             </div>
           </div>
 
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-white mb-3">Description</h3>
-            <p className="text-gray-300 leading-relaxed">
-              {unit.desc} The two-story layout creates an unparalleled sense of space and privacy, separating the elegant living and dining areas on the lower floor from the tranquil private quarters above.
-            </p>
+            <h3 className="text-lg font-semibold text-white mb-3">លក្ខណៈពិសេស (Features)</h3>
+            <ul className="text-gray-300 leading-relaxed space-y-2 list-disc pl-5 marker:text-[#FF9644]">
+              {unit.features.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
           </div>
 
           <a 
@@ -725,7 +944,7 @@ function UnitModal({ unit, onClose }) {
             rel="noopener noreferrer"
             className="block w-full text-center bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm"
           >
-            Inquire About This Unit
+            សាកសួរព័ត៌មានបន្ថែម (Inquire)
           </a>
         </div>
       </div>
