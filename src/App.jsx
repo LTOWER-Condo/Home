@@ -328,6 +328,20 @@ export default function App() {
     }
   }, []);
 
+  const handleNextUnit = () => {
+    if (!selectedUnit) return;
+    const currentIndex = UNIT_TYPES.findIndex(u => u.id === selectedUnit.id);
+    const nextIndex = (currentIndex + 1) % UNIT_TYPES.length;
+    setSelectedUnit(UNIT_TYPES[nextIndex]);
+  };
+
+  const handlePrevUnit = () => {
+    if (!selectedUnit) return;
+    const currentIndex = UNIT_TYPES.findIndex(u => u.id === selectedUnit.id);
+    const prevIndex = (currentIndex - 1 + UNIT_TYPES.length) % UNIT_TYPES.length;
+    setSelectedUnit(UNIT_TYPES[prevIndex]);
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-200" style={{ fontFamily: "'Kantumruy Pro', sans-serif" }}>
       {/* Navigation */}
@@ -396,7 +410,12 @@ export default function App() {
       </main>
 
       {selectedUnit && (
-        <UnitModal unit={selectedUnit} onClose={() => setSelectedUnit(null)} />
+        <UnitModal 
+           unit={selectedUnit} 
+           onClose={() => setSelectedUnit(null)} 
+           onNextUnit={handleNextUnit}
+           onPrevUnit={handlePrevUnit}
+        />
       )}
 
       <footer className="bg-[#34220a] py-8 border-t border-white/10 text-center text-sm text-gray-400">
@@ -851,7 +870,7 @@ function AboutTab() {
   );
 }
 
-function UnitModal({ unit, onClose }) {
+function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
   const [imgIdx, setImgIdx] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -926,7 +945,27 @@ function UnitModal({ unit, onClose }) {
           <span className="inline-block px-3 py-1 bg-[#FF9644]/10 text-[#FF9644] font-semibold border border-[#FF9644]/30 text-xs uppercase tracking-widest w-fit mb-6">
             Premium 2-Floor Unit
           </span>
-          <h2 className="text-3xl font-medium text-white mb-6">{unit.name}</h2>
+          
+          {/* Unit Title and Navigation */}
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-3xl font-medium text-white">{unit.name}</h2>
+            <div className="flex gap-2">
+              <button 
+                onClick={onPrevUnit}
+                className="p-2 bg-[#0a0a0a]/50 hover:bg-[#FF9644] text-white rounded-full transition-colors"
+                title="ប្រភេទមុន (Previous Type)"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={onNextUnit}
+                className="p-2 bg-[#0a0a0a]/50 hover:bg-[#FF9644] text-white rounded-full transition-colors"
+                title="ប្រភេទបន្ទាប់ (Next Type)"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
           
           <div className="grid grid-cols-2 gap-6 mb-8 border-y border-white/10 py-6">
             <div>
