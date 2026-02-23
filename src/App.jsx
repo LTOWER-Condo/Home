@@ -84,13 +84,11 @@ const MONIVONG2_GALLERY = [
   "./images/monivong2/monivong2_4.jpg",
   "./images/monivong2/monivong2_5.jpg",
   "./images/monivong2/monivong2_6.jpg",
-  "./images/monivong2/monivong2_7.jpg",
   "./images/monivong2/monivong2_8.jpg",
   "./images/monivong2/monivong2_9.jpg",
   "./images/monivong2/monivong2_10.jpg",
   "./images/monivong2/monivong2_11.jpg",
   "./images/monivong2/monivong2_12.jpg",
-  "./images/monivong2/monivong2_13.jpg",
   "./images/monivong2/monivong2_14.jpg",
   "./images/monivong2/monivong2_15.jpg",
   "./images/monivong2/monivong2_16.jpg"
