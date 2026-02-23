@@ -24,17 +24,76 @@ const MapPin = ({ className }) => <IconBase className={className}><path d="M20 1
 const ExternalLink = ({ className }) => <IconBase className={className}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></IconBase>;
 
 // --- DATA ---
-const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=600",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=600"
+const L1_GALLERY = [
+  "./images/L1/DSC01278.jpg",
+  "./images/L1/DSC01282.jpg",
+  "./images/L1/DSC01291.jpg",
+  "./images/L1/DSC01296.jpg",
+  "./images/L1/DSC01304.jpg",
+  "./images/L1/DSC01314.jpg",
+  "./images/L1/DSC01331.jpg",
+  "./images/L1/DSC01342.jpg",
+  "./images/L1/DSC01356.jpg",
+  "./images/L1/DSC01371.jpg"
+];
+
+const L2_GALLERY = [
+  "./images/L2/IMG_7818.jpg",
+  "./images/L2/IMG_7821.jpg",
+  "./images/L2/IMG_7822.jpg",
+  "./images/L2/IMG_7828.jpg",
+  "./images/L2/IMG_7829.jpg",
+  "./images/L2/IMG_7833.jpg",
+  "./images/L2/IMG_7835.jpg",
+  "./images/L2/IMG_7838.jpg",
+  "./images/L2/IMG_7841.jpg",
+  "./images/L2/IMG_7842.jpg"
+];
+
+const L3_GALLERY = [
+  "./images/L3/IMG_8294.jpg",
+  "./images/L3/IMG_8295.jpg",
+  "./images/L3/IMG_8296.jpg",
+  "./images/L3/IMG_8297.jpg",
+  "./images/L3/IMG_8298.jpg",
+  "./images/L3/IMG_8300.jpg",
+  "./images/L3/IMG_8301.jpg",
+  "./images/L3/IMG_8302.jpg",
+  "./images/L3/IMG_8303.jpg",
+  "./images/L3/IMG_8304.jpg",
+  "./images/L3/IMG_8305.jpg",
+  "./images/L3/IMG_8947.jpg",
+  "./images/L3/IMG_8948.jpg",
+  "./images/L3/IMG_8949.jpg",
+  "./images/L3/IMG_8950.jpg",
+  "./images/L3/IMG_8951.jpg",
+  "./images/L3/IMG_8952.jpg",
+  "./images/L3/IMG_8953.jpg",
+  "./images/L3/IMG_8954.jpg",
+  "./images/L3/IMG_8955.jpg",
+  "./images/L3/IMG_8956.jpg",
+  "./images/L3/IMG_8957.jpg",
+  "./images/L3/IMG_8958.jpg",
+  "./images/L3/IMG_8959.jpg"
+];
+
+const MONIVONG2_GALLERY = [
+  "./images/monivong2/monivong2_1.jpg",
+  "./images/monivong2/monivong2_2.jpg",
+  "./images/monivong2/monivong2_3.jpg",
+  "./images/monivong2/monivong2_4.jpg",
+  "./images/monivong2/monivong2_5.jpg",
+  "./images/monivong2/monivong2_6.jpg",
+  "./images/monivong2/monivong2_7.jpg",
+  "./images/monivong2/monivong2_8.jpg",
+  "./images/monivong2/monivong2_9.jpg",
+  "./images/monivong2/monivong2_10.jpg",
+  "./images/monivong2/monivong2_11.jpg",
+  "./images/monivong2/monivong2_12.jpg",
+  "./images/monivong2/monivong2_13.jpg",
+  "./images/monivong2/monivong2_14.jpg",
+  "./images/monivong2/monivong2_15.jpg",
+  "./images/monivong2/monivong2_16.jpg"
 ];
 
 const PROJECT_HISTORY = [
@@ -49,7 +108,7 @@ const PROJECT_HISTORY = [
     mapQuery: "L Tower 1, Phnom Penh", 
     description: "Our inaugural luxury high-rise project setting the standard for urban living. A masterpiece of engineering and design, L Tower 1 introduced a new era of sophisticated living to the Street 271 area, featuring robust construction and timeless aesthetics.",
     mapLink: "https://maps.app.goo.gl/8LMrrHk8ppDvenGZ9",
-    gallery: GALLERY_IMAGES
+    gallery: L1_GALLERY
   },
   {
     id: 2,
@@ -62,7 +121,7 @@ const PROJECT_HISTORY = [
     mapQuery: "L Tower 2, Phnom Penh", 
     description: "An architectural marvel blending modern design with unparalleled amenities. Located in the vibrant Toul Tom Poung district, this project offers residents immediate access to the city's best markets, cafes, and culture while maintaining a private sanctuary above.",
     mapLink: "https://maps.app.goo.gl/ALik7CWzr7yKcv458",
-    gallery: [...GALLERY_IMAGES].reverse()
+    gallery: L2_GALLERY
   },
   {
     id: 3,
@@ -75,7 +134,7 @@ const PROJECT_HISTORY = [
     mapQuery: "L Tower 3, Phnom Penh", 
     description: "A landmark development offering premium urban lifestyle and convenience. Standing tall on Monivong Boulevard, L Tower 3 is synonymous with prestige, offering panoramic views of the city skyline and Mekong river.",
     mapLink: "https://maps.app.goo.gl/QeCcmqzLXcf56hNs8",
-    gallery: GALLERY_IMAGES
+    gallery: L3_GALLERY
   },
   {
     id: 4,
@@ -88,7 +147,7 @@ const PROJECT_HISTORY = [
     mapQuery: "L Tower 3, Phnom Penh",
     description: "The pinnacle of our vision, featuring exclusive 2-floor duplex units. Designed for those who demand the extraordinary, this project redefines luxury with double-height ceilings, private terraces, and world-class facilities.",
     mapLink: "https://maps.app.goo.gl/QeCcmqzLXcf56hNs8",
-    gallery: GALLERY_IMAGES
+    gallery: MONIVONG2_GALLERY
   }
 ];
 
