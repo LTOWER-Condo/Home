@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // --- ICONS ---
 const IconBase = ({ children, className }) => (
@@ -157,6 +157,7 @@ const UNIT_TYPES = [
     baths: 2, 
     size: "88.50 sqm", 
     images: ["./images/F.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(0, 4),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -176,6 +177,7 @@ const UNIT_TYPES = [
     baths: 3, 
     size: "101 sqm", 
     images: ["./images/LT.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(4, 8),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -195,6 +197,7 @@ const UNIT_TYPES = [
     baths: 2, 
     size: "77 sqm", 
     images: ["./images/S1,T2.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(8, 12),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -214,6 +217,7 @@ const UNIT_TYPES = [
     baths: 2, 
     size: "77 sqm", 
     images: ["./images/T,T3.jpg", "./images/T1.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(10, 14),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -233,6 +237,7 @@ const UNIT_TYPES = [
     baths: 1, 
     size: "70 sqm", 
     images: ["./images/U.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(0, 3),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -252,6 +257,7 @@ const UNIT_TYPES = [
     baths: 2, 
     size: "77 sqm", 
     images: ["./images/V1.jpg", "./images/V2.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(3, 6),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -271,6 +277,7 @@ const UNIT_TYPES = [
     baths: 2, 
     size: "82 sqm", 
     images: ["./images/W.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(6, 9),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -290,6 +297,7 @@ const UNIT_TYPES = [
     baths: 2, 
     size: "91 sqm", 
     images: ["./images/X.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(9, 12),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -309,6 +317,7 @@ const UNIT_TYPES = [
     baths: 2, 
     size: "93.50 sqm", 
     images: ["./images/Y.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(10, 14),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -328,6 +337,7 @@ const UNIT_TYPES = [
     baths: 2, 
     size: "74.50 sqm", 
     images: ["./images/Z.jpg"], 
+    roomImages: MONIVONG2_GALLERY.slice(11, 14),
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
@@ -637,11 +647,6 @@ function ProjectTab({ project, children }) {
 
         {/* RIGHT SIDE: Info (Mobile Container + Desktop Right) (2/3 Width on Desktop) */}
         <div className="relative bg-[#0a0a0a] p-8 lg:p-16 flex flex-col justify-center overflow-hidden lg:col-span-2">
-           
-           {/* 1. Logo (Visible on Mobile Only) */}
-           {/* <div className="mb-8 block lg:hidden">
-              <img src="./images/logo.png" alt="L Tower" className="h-16 w-auto object-contain opacity-90" />
-           </div> */}
 
            {/* 2. Big Image (MOBILE ONLY) */}
            <div className="block lg:hidden w-full h-64 mb-8 rounded-sm overflow-hidden relative shadow-2xl border border-[#34220a]/30">
@@ -929,13 +934,22 @@ function AboutTab() {
 
 function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
   const [imgIdx, setImgIdx] = useState(0);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [roomImgIdx, setRoomImgIdx] = useState(0);
+  
+  // fullScreenType can be 'none', 'floorplan', or 'room'
+  const [fullScreenType, setFullScreenType] = useState('none');
+  const scrollRef = useRef(null);
 
-  // Reset image index when opening a new unit
+  // Reset indices when opening a new unit
   useEffect(() => {
     setImgIdx(0);
-    setIsFullScreen(false);
+    setRoomImgIdx(0);
+    setFullScreenType('none');
   }, [unit]);
+
+  const isFullScreen = fullScreenType !== 'none';
+  const fsImages = fullScreenType === 'room' ? unit.roomImages : unit.images;
+  const fsImgIdx = fullScreenType === 'room' ? roomImgIdx : imgIdx;
 
   const nextImg = (e) => {
     e.stopPropagation();
@@ -947,14 +961,50 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
     setImgIdx((prev) => (prev - 1 + unit.images.length) % unit.images.length);
   };
 
+  const nextRoomImg = (e) => {
+    e.stopPropagation();
+    setRoomImgIdx((prev) => (prev + 1) % (unit.roomImages?.length || 1));
+  };
+
+  const prevRoomImg = (e) => {
+    e.stopPropagation();
+    setRoomImgIdx((prev) => (prev - 1 + (unit.roomImages?.length || 1)) % (unit.roomImages?.length || 1));
+  };
+
+  const handleNextFS = (e) => {
+    if (fullScreenType === 'room') nextRoomImg(e);
+    else nextImg(e);
+  };
+
+  const handlePrevFS = (e) => {
+    if (fullScreenType === 'room') prevRoomImg(e);
+    else prevImg(e);
+  };
+  
+  const scrollRoomImages = (dir) => {
+    if (scrollRef.current) {
+      const amount = 240; 
+      scrollRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
+      <style>{`
+        .animate-marquee-reverse {
+          animation: marquee-reverse 30s linear infinite;
+        }
+        @keyframes marquee-reverse {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
       <div 
         className="absolute inset-0 bg-[#0a0a0a]/90 backdrop-blur-sm"
         onClick={onClose}
       ></div>
       
-      <div className="relative bg-[#34220a] border border-white/10 w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-sm flex flex-col md:flex-row shadow-2xl">
+      <div className="relative bg-[#34220a] border border-white/10 w-full max-w-5xl max-h-[90vh] md:max-h-[85vh] overflow-y-auto md:overflow-hidden rounded-sm flex flex-col md:flex-row shadow-2xl">
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 z-10 w-10 h-10 bg-[#0a0a0a]/50 hover:bg-[#FF9644] rounded-full flex items-center justify-center text-white transition-colors duration-300"
@@ -964,8 +1014,8 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
 
         {/* Left Side Image Section with Click to Expand */}
         <div 
-          className="w-full md:w-1/2 h-64 md:h-auto min-h-[400px] relative group bg-black cursor-pointer"
-          onClick={() => setIsFullScreen(true)}
+          className="w-full md:w-1/2 h-64 sm:h-[350px] md:h-auto md:min-h-full relative group bg-black cursor-pointer shrink-0"
+          onClick={() => setFullScreenType('floorplan')}
         >
           <img src={unit.images[imgIdx]} alt={unit.name} className="w-full h-full object-contain md:object-cover group-hover:opacity-80 transition-opacity" />
           
@@ -973,20 +1023,20 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-black/20">
              <div className="bg-black/60 text-white px-4 py-2 rounded-full backdrop-blur-sm flex items-center gap-2">
                 <Maximize2 className="w-4 h-4 text-[#FF9644]" /> 
-                <span className="text-sm uppercase tracking-widest">ពង្រីករូបភាព</span>
+                <span className="text-sm uppercase tracking-widest">ពង្រីករូបភាពប្លង់</span>
              </div>
           </div>
 
           {unit.images.length > 1 && (
             <>
               <button 
-                onClick={prevImg}
+                onClick={(e) => { e.stopPropagation(); prevImg(e); }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#FF9644] text-white p-2 rounded-full transition-colors z-20"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button 
-                onClick={nextImg}
+                onClick={(e) => { e.stopPropagation(); nextImg(e); }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-[#FF9644] text-white p-2 rounded-full transition-colors z-20"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -998,15 +1048,15 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
           )}
         </div>
         
-        <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-10 flex flex-col md:overflow-y-auto">
           <span className="inline-block px-3 py-1 bg-[#FF9644]/10 text-[#FF9644] font-semibold border border-[#FF9644]/30 text-xs uppercase tracking-widest w-fit mb-6">
             Premium 2-Floor Unit
           </span>
           
           {/* Unit Title and Navigation */}
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-medium text-white">{unit.name}</h2>
-            <div className="flex gap-2">
+          <div className="flex items-start sm:items-center justify-between mb-6 flex-col sm:flex-row gap-4 sm:gap-0">
+            <h2 className="text-2xl sm:text-3xl font-medium text-white">{unit.name}</h2>
+            <div className="flex gap-2 shrink-0 sm:ml-4">
               <button 
                 onClick={onPrevUnit}
                 className="p-2 bg-[#0a0a0a]/50 hover:bg-[#FF9644] text-white rounded-full transition-colors"
@@ -1024,7 +1074,7 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 gap-6 mb-8 border-y border-white/10 py-6">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-6 border-y border-white/10 py-6">
             <div>
               <p className="text-sm text-gray-400 mb-1">ទំហំសរុប (Total Area)</p>
               <p className="text-xl text-white font-medium flex items-center"><Maximize2 className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.size}</p>
@@ -1048,11 +1098,73 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
             </ul>
           </div>
 
+          {/* Right Side Room Images Gallery (Auto-scrolling Left to Right) */}
+          {unit.roomImages && unit.roomImages.length > 0 && (
+            <div className="mb-8 w-full max-w-full overflow-hidden">
+              <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+                 <span className="w-6 h-[1px] bg-[#FF9644] mr-3"></span>
+                 រូបភាពបន្ទប់ (Room Images)
+              </h3>
+              
+              <div className="overflow-hidden whitespace-nowrap relative w-full" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
+                 <div className="inline-block animate-marquee-reverse hover:pause-animation">
+                    {unit.roomImages.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className="inline-block w-48 md:w-56 h-32 md:h-40 mr-3 relative rounded-2xl overflow-hidden cursor-pointer border border-[#34220a] hover:border-[#FF9644]/80 transition-all duration-300 shadow-lg group"
+                        onClick={() => {
+                          setRoomImgIdx(idx);
+                          setFullScreenType('room');
+                        }}
+                      >
+                        <img
+                          src={img}
+                          alt={`Room view ${idx + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                           <div className="bg-black/60 text-white px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-2 shadow-xl">
+                              <Maximize2 className="w-3 h-3 text-[#FF9644]" />
+                              <span className="text-xs uppercase tracking-widest">ពង្រីក</span>
+                           </div>
+                        </div>
+                      </div>
+                    ))}
+                    {/* Duplicate for seamless loop */}
+                    {unit.roomImages.map((img, idx) => (
+                      <div
+                        key={`dup-${idx}`}
+                        className="inline-block w-48 md:w-56 h-32 md:h-40 mr-3 relative rounded-2xl overflow-hidden cursor-pointer border border-[#34220a] hover:border-[#FF9644]/80 transition-all duration-300 shadow-lg group"
+                        onClick={() => {
+                          setRoomImgIdx(idx);
+                          setFullScreenType('room');
+                        }}
+                      >
+                        <img
+                          src={img}
+                          alt={`Room view ${idx + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                           <div className="bg-black/60 text-white px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-2 shadow-xl">
+                              <Maximize2 className="w-3 h-3 text-[#FF9644]" />
+                              <span className="text-xs uppercase tracking-widest">ពង្រីក</span>
+                           </div>
+                        </div>
+                      </div>
+                    ))}
+                 </div>
+              </div>
+            </div>
+          )}
+
           <a 
             href="https://t.me/lsaleservice" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block w-full text-center bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm"
+            className="block w-full text-center bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm mt-4"
           >
             សាកសួរព័ត៌មានបន្ថែម (Inquire)
           </a>
@@ -1063,23 +1175,23 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
       {isFullScreen && (
         <div 
           className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300"
-          onClick={() => setIsFullScreen(false)}
+          onClick={() => setFullScreenType('none')}
         >
           <button className="absolute top-6 right-6 text-white hover:text-[#FF9644] z-50">
             <X className="w-8 h-8" />
           </button>
 
-          {unit.images.length > 1 && (
+          {fsImages && fsImages.length > 1 && (
             <>
               <button 
-                onClick={(e) => { e.stopPropagation(); prevImg(e); }}
+                onClick={handlePrevFS}
                 className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white hover:text-[#FF9644] bg-black/50 p-2 rounded-full transition-colors z-50"
               >
                 <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
               </button>
               
               <button 
-                onClick={(e) => { e.stopPropagation(); nextImg(e); }}
+                onClick={handleNextFS}
                 className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white hover:text-[#FF9644] bg-black/50 p-2 rounded-full transition-colors z-50"
               >
                 <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
@@ -1088,15 +1200,15 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
           )}
 
           <img 
-            src={unit.images[imgIdx]} 
-            alt={`${unit.name} full screen`} 
+            src={fsImages[fsImgIdx]} 
+            alt="Full screen preview" 
             className="max-w-full max-h-[90vh] object-contain shadow-2xl rounded-sm border border-[#34220a]"
             onClick={(e) => e.stopPropagation()} 
           />
           
-          {unit.images.length > 1 && (
+          {fsImages && fsImages.length > 1 && (
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm">
-              {imgIdx + 1} / {unit.images.length}
+              {fsImgIdx + 1} / {fsImages.length}
             </div>
           )}
         </div>
