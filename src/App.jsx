@@ -981,13 +981,6 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
     else prevImg(e);
   };
   
-  const scrollRoomImages = (dir) => {
-    if (scrollRef.current) {
-      const amount = 240; 
-      scrollRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
       <style>{`
@@ -997,6 +990,9 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
         @keyframes marquee-reverse {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
       <div 
@@ -1048,13 +1044,13 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
           )}
         </div>
         
-        <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-10 flex flex-col md:overflow-y-auto">
-          <span className="inline-block px-3 py-1 bg-[#FF9644]/10 text-[#FF9644] font-semibold border border-[#FF9644]/30 text-xs uppercase tracking-widest w-fit mb-6">
+        <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-10 flex flex-col md:overflow-y-auto shrink-0">
+          <span className="inline-block px-3 py-1 bg-[#FF9644]/10 text-[#FF9644] font-semibold border border-[#FF9644]/30 text-xs uppercase tracking-widest w-fit mb-6 shrink-0">
             Premium 2-Floor Unit
           </span>
           
           {/* Unit Title and Navigation */}
-          <div className="flex items-start sm:items-center justify-between mb-6 flex-col sm:flex-row gap-4 sm:gap-0">
+          <div className="flex items-start sm:items-center justify-between mb-6 flex-col sm:flex-row gap-4 sm:gap-0 shrink-0">
             <h2 className="text-2xl sm:text-3xl font-medium text-white">{unit.name}</h2>
             <div className="flex gap-2 shrink-0 sm:ml-4">
               <button 
@@ -1074,7 +1070,7 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-6 border-y border-white/10 py-6">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-6 border-y border-white/10 py-6 shrink-0">
             <div>
               <p className="text-sm text-gray-400 mb-1">ទំហំសរុប (Total Area)</p>
               <p className="text-xl text-white font-medium flex items-center"><Maximize2 className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.size}</p>
@@ -1089,7 +1085,7 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
             </div>
           </div>
 
-          <div className="mb-8">
+          <div className="mb-8 shrink-0">
             <h3 className="text-lg font-semibold text-white mb-3">លក្ខណៈពិសេស (Features)</h3>
             <ul className="text-gray-300 leading-relaxed space-y-2 list-disc pl-5 marker:text-[#FF9644]">
               {unit.features.map((feature, idx) => (
@@ -1100,7 +1096,7 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
 
           {/* Right Side Room Images Gallery (Auto-scrolling Left to Right) */}
           {unit.roomImages && unit.roomImages.length > 0 && (
-            <div className="mb-8 w-full max-w-full overflow-hidden">
+            <div className="mb-8 w-full max-w-full overflow-hidden shrink-0">
               <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
                  <span className="w-6 h-[1px] bg-[#FF9644] mr-3"></span>
                  រូបភាពបន្ទប់ (Room Images)
@@ -1164,7 +1160,7 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
             href="https://t.me/lsaleservice" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block w-full text-center bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm mt-4"
+            className="block w-full text-center bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm mt-4 shrink-0"
           >
             សាកសួរព័ត៌មានបន្ថែម (Inquire)
           </a>
