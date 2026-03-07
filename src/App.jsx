@@ -18,6 +18,7 @@ const X = ({ className }) => <IconBase className={className}><line x1="18" y1="6
 const Menu = ({ className }) => <IconBase className={className}><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></IconBase>;
 const ArrowRight = ({ className }) => <IconBase className={className}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></IconBase>;
 const Maximize2 = ({ className }) => <IconBase className={className}><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></IconBase>;
+const RotateCw = ({ className }) => <IconBase className={className}><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></IconBase>;
 const BedDouble = ({ className }) => <IconBase className={className}><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 4v6"/><path d="M2 18h20"/></IconBase>;
 const Bath = ({ className }) => <IconBase className={className}><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></IconBase>;
 const MapPin = ({ className }) => <IconBase className={className}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></IconBase>;
@@ -77,21 +78,90 @@ const L3_GALLERY = [
   "./images/L3/IMG_8959.jpg"
 ];
 
+// specific unit images
+const TYPE_F_IMAGES = [
+  "./images/L3_NEW/Type F/IMG_3024.jpg",
+  "./images/L3_NEW/Type F/IMG_3026.jpg",
+  "./images/L3_NEW/Type F/IMG_3027.jpg",
+  "./images/L3_NEW/Type F/IMG_3031.jpg",
+  "./images/L3_NEW/Type F/IMG_3032.jpg",
+  "./images/L3_NEW/Type F/IMG_3033.jpg",
+  "./images/L3_NEW/Type F/IMG_3034.jpg",
+  "./images/L3_NEW/Type F/IMG_3035.jpg",
+  "./images/L3_NEW/Type F/IMG_3036.jpg",
+  "./images/L3_NEW/Type F/IMG_3037.jpg",
+  "./images/L3_NEW/Type F/IMG_3038.jpg"
+];
+
+const TYPE_LT_IMAGES = [
+  "./images/L3_NEW/Type LT/IMG_3007.jpg",
+  "./images/L3_NEW/Type LT/IMG_3009.jpg",
+  "./images/L3_NEW/Type LT/IMG_3010.jpg",
+  "./images/L3_NEW/Type LT/IMG_3012.jpg",
+  "./images/L3_NEW/Type LT/IMG_3015.jpg",
+  "./images/L3_NEW/Type LT/IMG_3016.jpg",
+  "./images/L3_NEW/Type LT/IMG_3017.jpg",
+  "./images/L3_NEW/Type LT/IMG_3018.jpg",
+  "./images/L3_NEW/Type LT/IMG_3019.jpg",
+  "./images/L3_NEW/Type LT/IMG_3020.jpg",
+  "./images/L3_NEW/Type LT/IMG_3021.jpg",
+  "./images/L3_NEW/Type LT/IMG_3022.jpg",
+  "./images/L3_NEW/Type LT/IMG_3023.jpg"
+];
+
+const TYPE_V2_IMAGES = [
+  "./images/L3_NEW/Type V2/IMG_3075.jpg",
+  "./images/L3_NEW/Type V2/IMG_3076.jpg",
+  "./images/L3_NEW/Type V2/IMG_3083.jpg",
+  "./images/L3_NEW/Type V2/IMG_3084.jpg",
+  "./images/L3_NEW/Type V2/IMG_3085.jpg",
+  "./images/L3_NEW/Type V2/IMG_3086.jpg",
+  "./images/L3_NEW/Type V2/IMG_3087.jpg",
+  "./images/L3_NEW/Type V2/IMG_3088.jpg",
+  "./images/L3_NEW/Type V2/IMG_3089.jpg",
+  "./images/L3_NEW/Type V2/IMG_3090.jpg"
+];
+
+const TYPE_X_IMAGES = [
+  "./images/L3_NEW/Type X/IMG_2975.jpg",
+  "./images/L3_NEW/Type X/IMG_2977.jpg",
+  "./images/L3_NEW/Type X/IMG_2980.jpg",
+  "./images/L3_NEW/Type X/IMG_2982.jpg",
+  "./images/L3_NEW/Type X/IMG_2986.jpg",
+  "./images/L3_NEW/Type X/IMG_2987.jpg",
+  "./images/L3_NEW/Type X/IMG_2988.jpg",
+  "./images/L3_NEW/Type X/IMG_2989.jpg",
+  "./images/L3_NEW/Type X/IMG_2990.jpg",
+  "./images/L3_NEW/Type X/IMG_2991.jpg",
+  "./images/L3_NEW/Type X/IMG_2992.jpg",
+  "./images/L3_NEW/Type X/IMG_2993.jpg"
+];
+
+const TYPE_Z_IMAGES = [
+  "./images/L3_NEW/Type Z/IMG_2949.jpg",
+  "./images/L3_NEW/Type Z/IMG_2952.jpg",
+  "./images/L3_NEW/Type Z/IMG_2958.jpg",
+  "./images/L3_NEW/Type Z/IMG_2959.jpg",
+  "./images/L3_NEW/Type Z/IMG_2960.jpg",
+  "./images/L3_NEW/Type Z/IMG_2961.jpg",
+  "./images/L3_NEW/Type Z/IMG_2962.jpg",
+  "./images/L3_NEW/Type Z/IMG_2963.jpg",
+  "./images/L3_NEW/Type Z/IMG_2964.jpg",
+  "./images/L3_NEW/Type Z/IMG_2965.jpg",
+  "./images/L3_NEW/Type Z/IMG_2966.jpg",
+  "./images/L3_NEW/Type Z/IMG_2967.jpg",
+  "./images/L3_NEW/Type Z/IMG_2969.jpg",
+  "./images/L3_NEW/Type Z/IMG_2971.jpg",
+  "./images/L3_NEW/Type Z/IMG_2972.jpg",
+  "./images/L3_NEW/Type Z/IMG_2973.jpg"
+];
+
 const MONIVONG2_GALLERY = [
-  "./images/monivong2/monivong2_1.jpg",
-  "./images/monivong2/monivong2_2.jpg",
-  "./images/monivong2/monivong2_3.jpg",
-  "./images/monivong2/monivong2_4.jpg",
-  "./images/monivong2/monivong2_5.jpg",
-  "./images/monivong2/monivong2_6.jpg",
-  "./images/monivong2/monivong2_8.jpg",
-  "./images/monivong2/monivong2_9.jpg",
-  "./images/monivong2/monivong2_10.jpg",
-  "./images/monivong2/monivong2_11.jpg",
-  "./images/monivong2/monivong2_12.jpg",
-  "./images/monivong2/monivong2_14.jpg",
-  "./images/monivong2/monivong2_15.jpg",
-  "./images/monivong2/monivong2_16.jpg"
+  ...TYPE_F_IMAGES,
+  ...TYPE_LT_IMAGES,
+  ...TYPE_V2_IMAGES,
+  ...TYPE_X_IMAGES,
+  ...TYPE_Z_IMAGES
 ];
 
 const PROJECT_HISTORY = [
@@ -136,11 +206,11 @@ const PROJECT_HISTORY = [
   },
   {
     id: 4,
-    title: "គម្រោង ព្រះមុនីវង្ស 2",
+    title: "គម្រោង ព្រះមុនីវង្សថ្មី",
     year: "2026",
     status: "Now Selling",
     image: "./images/cover.jpg",
-    link: "#monivong-2",
+    link: "#ltower-3-new",
     location: "Monivong Boulevard, Phnom Penh",
     mapQuery: "L Tower 3, Phnom Penh",
     description: "The pinnacle of our vision, featuring exclusive 2-floor duplex units. Designed for those who demand the extraordinary, this project redefines luxury with double-height ceilings, private terraces, and world-class facilities.",
@@ -152,17 +222,18 @@ const PROJECT_HISTORY = [
 const UNIT_TYPES = [
   { 
     id: 'F', 
-    name: "ប្រភេទF", 
+    name: "ប្រភេទ F", 
     beds: 2, 
     baths: 2, 
     size: "88.50 sqm", 
     images: ["./images/F.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(0, 4),
+    roomImages: TYPE_F_IMAGES,
+    vrLink: "https://yun.kujiale.com/design/3FO3CM9M1CWB/show",
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទF 88.50ម៉ែត្រការ៉េ (77,50 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ F 88.50ម៉ែត្រការ៉េ (77,50 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង2",
       "បន្ទប់ទឹក2",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -171,18 +242,19 @@ const UNIT_TYPES = [
     ] 
   },
   { 
-    id: 'L', 
-    name: "ប្រភេទLT", 
+    id: 'LT', 
+    name: "ប្រភេទ LT", 
     beds: 3, 
     baths: 3, 
     size: "101 sqm", 
     images: ["./images/LT.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(4, 8),
+    roomImages: TYPE_LT_IMAGES,
+    vrLink: "https://yun.kujiale.com/design/3FO3CM9HWAN8/show",
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទLT 101ម៉ែត្រការ៉េ (88 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ LT 101ម៉ែត្រការ៉េ (88 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង3",
       "បន្ទប់ទឹក3",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -191,18 +263,18 @@ const UNIT_TYPES = [
     ] 
   },
   { 
-    id: 'S', 
-    name: "ប្រភេទS1,T2", 
+    id: 'S1_T2', 
+    name: "ប្រភេទ S1,T2", 
     beds: 2, 
     baths: 2, 
     size: "77 sqm", 
     images: ["./images/S1,T2.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(8, 12),
+    roomImages: ["./images/S1,T2.jpg"],
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទS1,T2 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ S1,T2 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង2",
       "បន្ទប់ទឹក2",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -211,18 +283,18 @@ const UNIT_TYPES = [
     ] 
   },
   { 
-    id: 'T', 
-    name: "ប្រភេទT,T3", 
+    id: 'T_T3_T1', 
+    name: "ប្រភេទ T,T3,T1", 
     beds: 2, 
     baths: 2, 
     size: "77 sqm", 
     images: ["./images/T,T3.jpg", "./images/T1.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(10, 14),
+    roomImages: ["./images/T,T3.jpg", "./images/T1.jpg"],
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទT,T3 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ T,T3,T1 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង2",
       "បន្ទប់ទឹក2",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -232,17 +304,17 @@ const UNIT_TYPES = [
   },
   { 
     id: 'U', 
-    name: "ប្រភេទU", 
+    name: "ប្រភេទ U", 
     beds: 2, 
     baths: 1, 
     size: "70 sqm", 
     images: ["./images/U.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(0, 3),
+    roomImages: ["./images/U.jpg"],
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទU 70ម៉ែត្រការ៉េ (61 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ U 70ម៉ែត្រការ៉េ (61 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង2",
       "បន្ទប់ទឹក1",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -251,18 +323,19 @@ const UNIT_TYPES = [
     ] 
   },
   { 
-    id: 'V', 
-    name: "ប្រភេទV1", 
+    id: 'V1_V2', 
+    name: "ប្រភេទ V1,V2", 
     beds: 2, 
     baths: 2, 
     size: "77 sqm", 
     images: ["./images/V1.jpg", "./images/V2.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(3, 6),
+    roomImages: TYPE_V2_IMAGES,
+    vrLink: "https://yun.kujiale.com/design/3FO3CM8HCUY2/show",
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទV1 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ V1,V2 77ម៉ែត្រការ៉េ (67 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង2",
       "បន្ទប់ទឹក2",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -272,17 +345,17 @@ const UNIT_TYPES = [
   },
   { 
     id: 'W', 
-    name: "ប្រភេទW", 
+    name: "ប្រភេទ W", 
     beds: 3, 
     baths: 2, 
     size: "82 sqm", 
     images: ["./images/W.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(6, 9),
+    roomImages: ["./images/W.jpg"],
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទW 82ម៉ែត្រការ៉េ (71.50 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ W 82ម៉ែត្រការ៉េ (71.50 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង3",
       "បន្ទប់ទឹក2",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -292,17 +365,18 @@ const UNIT_TYPES = [
   },
   { 
     id: 'X', 
-    name: "ប្រភេទX", 
+    name: "ប្រភេទ X", 
     beds: 3, 
     baths: 2, 
     size: "91 sqm", 
     images: ["./images/X.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(9, 12),
+    roomImages: TYPE_X_IMAGES,
+    vrLink: "https://yun.kujiale.com/design/3FO3BXGLJBCE/show",
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទX 91ម៉ែត្រការ៉េ (79.50 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ X 91ម៉ែត្រការ៉េ (79.50 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង3",
       "បន្ទប់ទឹក2",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -312,17 +386,17 @@ const UNIT_TYPES = [
   },
   { 
     id: 'Y', 
-    name: "ប្រភេទY", 
+    name: "ប្រភេទ Y", 
     beds: 3, 
     baths: 2, 
     size: "93.50 sqm", 
     images: ["./images/Y.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(10, 14),
+    roomImages: ["./images/Y.jpg"],
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទY 93.50ម៉ែត្រការ៉េ (81.50 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ Y 93.50ម៉ែត្រការ៉េ (81.50 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង3",
       "បន្ទប់ទឹក2",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -332,17 +406,18 @@ const UNIT_TYPES = [
   },
   { 
     id: 'Z', 
-    name: "ប្រភេទZ", 
+    name: "ប្រភេទ Z", 
     beds: 2, 
     baths: 2, 
     size: "74.50 sqm", 
     images: ["./images/Z.jpg"], 
-    roomImages: MONIVONG2_GALLERY.slice(11, 14),
+    roomImages: TYPE_Z_IMAGES,
+    vrLink: "https://yun.kujiale.com/design/3FO3CM1OA2DX/show",
     features: [
       "ជាន់ទី9ដល់24",
       "ខុនដូ2ជាន់",
       "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
-      "ប្រភេទZ 74.50ម៉ែត្រការ៉េ (65 ម៉ែត្រការ៉េ)",
+      "ប្រភេទ Z 74.50ម៉ែត្រការ៉េ (65 ម៉ែត្រការ៉េ)",
       "បន្ទប់គេង2",
       "បន្ទប់ទឹក2",
       "កន្លែងទទួលភ្ញៀវធំទូលាយ",
@@ -357,7 +432,7 @@ const TABS = [
   { id: 'ltower-1', label: 'LTOWER 1' },
   { id: 'ltower-2', label: 'LTOWER 2' },
   { id: 'ltower-3', label: 'LTOWER 3' },
-  { id: 'monivong-2', label: 'Monivong 2' },
+  { id: 'ltower-3-new', label: 'LTOWER 3(NEW)' },
   { id: 'about-us', label: 'About Us' }
 ];
 
@@ -438,7 +513,7 @@ export default function App() {
 
           <div className="flex md:hidden items-center space-x-4">
              <a href="#home" className={`text-xs font-semibold uppercase tracking-widest ${activeTab === 'home' ? 'text-[#FF9644]' : 'text-gray-400'}`}>Home</a>
-             <a href="#monivong-2" className={`text-xs font-semibold uppercase tracking-widest ${activeTab === 'monivong-2' ? 'text-[#FF9644]' : 'text-gray-400'}`}>Monivong-2</a>
+             <a href="#ltower-3-new" className={`text-xs font-semibold uppercase tracking-widest ${activeTab === 'ltower-3-new' ? 'text-[#FF9644]' : 'text-gray-400'}`}>LTOWER 3(NEW)</a>
              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white hover:text-[#FF9644] transition-colors ml-2">
                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
              </button>
@@ -447,7 +522,7 @@ export default function App() {
 
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-20 left-0 w-full bg-[#0a0a0a] border-b border-white/10 px-6 py-4 flex flex-col space-y-4 shadow-2xl animate-in slide-in-from-top-4 duration-300">
-            {TABS.filter(t => t.id !== 'home' && t.id !== 'monivong-2').map(tab => (
+            {TABS.filter(t => t.id !== 'home' && t.id !== 'ltower-3-new').map(tab => (
                <a
                   key={tab.id}
                   href={`#${tab.id}`}
@@ -468,7 +543,7 @@ export default function App() {
         {activeTab === 'ltower-1' && <ProjectTab project={PROJECT_HISTORY[0]} />}
         {activeTab === 'ltower-2' && <ProjectTab project={PROJECT_HISTORY[1]} />}
         {activeTab === 'ltower-3' && <ProjectTab project={PROJECT_HISTORY[2]} />}
-        {activeTab === 'monivong-2' && (
+        {activeTab === 'ltower-3-new' && (
           <ProjectTab project={PROJECT_HISTORY[3]}>
             <TypeSection setSelectedUnit={setSelectedUnit} />
           </ProjectTab>
@@ -515,7 +590,7 @@ function HomeTab() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <p className="text-[#FF9644] tracking-[0.3em] uppercase text-sm mb-6">Exclusive 2-Floor Residences</p>
           <h1 className="text-5xl md:text-7xl font-semibold text-white mb-6 leading-tight">
-            គម្រោង ព្រះមុនីវង្ស 2
+            គម្រោង ព្រះមុនីវង្សថ្មី
           </h1>
           <h2 className="text-3xl md:text-4xl font-light text-gray-200 mb-12">
             សូមស្វាគមន៍
@@ -710,7 +785,10 @@ function ProjectTab({ project, children }) {
 
               {/* Mobile Auto-scrolling Gallery (Unchanged for Mobile) */}
               <div className="block lg:hidden overflow-hidden whitespace-nowrap mask-gradient relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-                 <div className="inline-block animate-marquee hover:pause-animation">
+                 <div 
+                   className="inline-block animate-marquee hover:pause-animation"
+                   style={{ animationDuration: `${Math.max(project.gallery.length * 4, 40)}s` }}
+                 >
                     {project.gallery.map((img, idx) => (
                       <div 
                         key={idx} 
@@ -806,7 +884,9 @@ function ProjectTab({ project, children }) {
 
       <style>{`
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation-name: marquee;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
         }
         .hover\\:pause-animation:hover {
           animation-play-state: paused;
@@ -875,15 +955,24 @@ function AboutTab() {
     { icon: Film, label: "TikTok", value: "@ltowercondo", href: "https://www.tiktok.com/@ltowercondo" },
   ];
 
+  const LOCATIONS_360 = [
+    { id: 'l1', name: 'L Tower 1', image: './360_photo/360_LTOWER_1.jpg', thumb: './images/LTOWER1.jpg' },
+    { id: 'l2', name: 'L Tower 2', image: './360_photo/360_LTOWER_2.jpg', thumb: './images/LTOWER2.jpg' },
+    { id: 'l3', name: 'L Tower 3', image: './360_photo/360_LTOWER_3.jpg', thumb: './images/LTOWER3.jpg' }
+  ];
+  
+  const [activeLoc, setActiveLoc] = useState(LOCATIONS_360[0]);
+  const [is360Active, setIs360Active] = useState(false);
+
   return (
     <div className="animate-in fade-in duration-700 min-h-[calc(100vh-10rem)] flex items-center justify-center py-20 px-6">
-      <div className="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
         {/* Left Side: Info */}
         <div>
           <h2 className="text-4xl font-light text-white mb-4">Get In Touch</h2>
           <p className="text-gray-300 mb-10">
-            Interested in the premium 2-floor units at គម្រោង ព្រះមុនីវង្ស 2? Contact our dedicated sales team through any of the channels below to schedule a private viewing.
+            Interested in the premium 2-floor units at គម្រោង ព្រះមុនីវង្សថ្មី? Contact our dedicated sales team through any of the channels below to schedule a private viewing.
           </p>
           
           <div className="space-y-6">
@@ -910,25 +999,123 @@ function AboutTab() {
           </div>
         </div>
 
-        {/* Right Side: Visual */}
-        <div className="relative h-[600px] hidden lg:block rounded-sm overflow-hidden border border-white/10">
-           <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" 
-              alt="Building Facade" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent"></div>
-            <div className="absolute bottom-8 left-8">
-              <div className="flex items-center text-[#FF9644] mb-2">
-                <MapPin className="w-5 h-5 mr-2" />
-                <span className="uppercase tracking-widest text-sm">Location</span>
-              </div>
-              <p className="text-white text-lg">Monivong Boulevard<br/>Phnom Penh, Cambodia</p>
+        {/* Right Side: 360 Visual */}
+        <div className="flex flex-col gap-4 w-full">
+          <h3 className="text-xl font-light text-white flex items-center">
+             <span className="w-6 h-[1px] bg-[#FF9644] mr-3"></span>
+             Virtual 360° Tour
+          </h3>
+          
+          <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] shadow-2xl">
+            {!is360Active ? (
+              <>
+                <img 
+                  src={activeLoc.thumb} 
+                  alt={activeLoc.name} 
+                  className="w-full h-full object-cover opacity-50 transition-opacity duration-500 hover:opacity-70"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                   <button 
+                     onClick={() => setIs360Active(true)}
+                     className="flex flex-col items-center group"
+                   >
+                     <div className="w-16 h-16 rounded-full bg-[#FF9644] text-[#0a0a0a] flex items-center justify-center group-hover:scale-110 transition-transform duration-300 mb-3 shadow-[0_0_30px_rgba(255,150,68,0.5)]">
+                       <RotateCw className="w-8 h-8" />
+                     </div>
+                     <span className="text-white uppercase tracking-widest text-sm font-bold drop-shadow-lg bg-black/40 px-4 py-1.5 rounded-full backdrop-blur-sm">Click to Load 360°</span>
+                   </button>
+                </div>
+              </>
+            ) : (
+              <PanoramaViewer image={activeLoc.image} />
+            )}
+            
+            {/* Location Overlay Label */}
+            <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 pointer-events-none">
+               <p className="text-[#FF9644] text-xs font-bold uppercase tracking-widest">{activeLoc.name}</p>
             </div>
+          </div>
+
+          {/* Location Selectors */}
+          <div className="grid grid-cols-3 gap-3">
+             {LOCATIONS_360.map((loc) => (
+               <button
+                 key={loc.id}
+                 onClick={() => {
+                    setActiveLoc(loc);
+                    setIs360Active(false); // Reset 360 view to save performance when switching
+                 }}
+                 className={`relative h-20 sm:h-24 rounded-xl overflow-hidden border transition-all duration-300 group ${activeLoc.id === loc.id ? 'border-[#FF9644] shadow-[0_0_15px_rgba(255,150,68,0.2)] scale-100' : 'border-white/10 opacity-60 hover:opacity-100 scale-95 hover:scale-100'}`}
+               >
+                 <img src={loc.thumb} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={loc.name} />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                 <span className="absolute bottom-2 w-full text-center text-[10px] sm:text-xs font-semibold text-white uppercase tracking-widest drop-shadow-md">
+                   {loc.name}
+                 </span>
+               </button>
+             ))}
+          </div>
         </div>
 
       </div>
     </div>
+  );
+}
+
+function PanoramaViewer({ image }) {
+  const viewerRef = useRef(null);
+
+  useEffect(() => {
+    let viewer;
+    let timeout;
+
+    const loadScript = () => {
+      if (!document.getElementById('pannellum-script')) {
+        const script = document.createElement('script');
+        script.id = 'pannellum-script';
+        script.src = 'https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js';
+        document.body.appendChild(script);
+
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css';
+        document.head.appendChild(link);
+      }
+    };
+
+    const initViewer = () => {
+      if (window.pannellum && viewerRef.current) {
+        viewerRef.current.innerHTML = '';
+        viewer = window.pannellum.viewer(viewerRef.current, {
+          type: 'equirectangular',
+          panorama: image,
+          autoLoad: true,
+          compass: false,
+          showControls: true,
+          mouseZoom: false, // Prevents unintended zooming when scrolling page
+        });
+      } else {
+        timeout = setTimeout(initViewer, 200);
+      }
+    };
+
+    loadScript();
+    initViewer();
+
+    return () => {
+      clearTimeout(timeout);
+      if (viewer) {
+        viewer.destroy();
+      }
+    };
+  }, [image]);
+
+  return (
+    <div 
+       ref={viewerRef} 
+       className="w-full h-full cursor-grab active:cursor-grabbing bg-black" 
+       style={{ touchAction: 'none' }} // Prevents mobile page scroll when panning
+    />
   );
 }
 
@@ -981,11 +1168,20 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
     else prevImg(e);
   };
   
+  const scrollRoomImages = (dir) => {
+    if (scrollRef.current) {
+      const amount = 240; 
+      scrollRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
       <style>{`
         .animate-marquee-reverse {
-          animation: marquee-reverse 30s linear infinite;
+          animation-name: marquee-reverse;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
         }
         @keyframes marquee-reverse {
           0% { transform: translateX(-50%); }
@@ -1103,7 +1299,10 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
               </h3>
               
               <div className="overflow-hidden whitespace-nowrap relative w-full" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-                 <div className="inline-block animate-marquee-reverse hover:pause-animation">
+                 <div 
+                   className="inline-block animate-marquee-reverse hover:pause-animation"
+                   style={{ animationDuration: `${Math.max(unit.roomImages.length * 4, 30)}s` }}
+                 >
                     {unit.roomImages.map((img, idx) => (
                       <div
                         key={idx}
@@ -1156,14 +1355,27 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
             </div>
           )}
 
-          <a 
-            href="https://t.me/lsaleservice" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="block w-full text-center bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm mt-4 shrink-0"
-          >
-            សាកសួរព័ត៌មានបន្ថែម (Inquire)
-          </a>
+          <div className="flex flex-col gap-3 mt-4 shrink-0">
+            <a 
+              href="https://t.me/lsaleservice" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block w-full text-center bg-[#FF9644] hover:bg-white text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm"
+            >
+              សាកសួរព័ត៌មានបន្ថែម (Inquire)
+            </a>
+            
+            {unit.vrLink && (
+              <a 
+                href={unit.vrLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block w-full text-center bg-transparent border-2 border-[#FF9644] text-[#FF9644] hover:bg-[#FF9644] hover:text-[#0a0a0a] font-bold py-4 transition-colors duration-300 uppercase tracking-widest text-sm flex justify-center items-center gap-2"
+              >
+                <Film className="w-5 h-5" /> 3D Showroom
+              </a>
+            )}
+          </div>
         </div>
       </div>
 
