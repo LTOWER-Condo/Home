@@ -970,9 +970,9 @@ function AboutTab() {
         
         {/* Left Side: Info */}
         <div>
-          <h2 className="text-4xl font-light text-white mb-4">Get In Touch</h2>
-          <p className="text-gray-300 mb-10">
-            Interested in the premium 2-floor units at គម្រោង ព្រះមុនីវង្សថ្មី? Contact our dedicated sales team through any of the channels below to schedule a private viewing.
+          <h2 className="text-4xl font-light text-white mb-4">Connect With Us</h2>
+          <p className="text-gray-300 mb-10 text-lg leading-relaxed">
+            Ready to experience luxury living? Reach out to our dedicated team today. Whether you have questions about our properties, want to discuss pricing, or are ready to schedule a private viewing of our exclusive units, we're here to assist you every step of the way.
           </p>
           
           <div className="space-y-6">
