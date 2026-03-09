@@ -1119,12 +1119,13 @@ function PanoramaViewer({ image }) {
     };
 
     if (el) {
-      el.addEventListener('touchmove', preventNativeSwipe, { passive: false });
+      // Use capture: true to intercept the event before iPadOS or child elements can process it as a page swipe
+      el.addEventListener('touchmove', preventNativeSwipe, { passive: false, capture: true });
     }
 
     return () => {
       if (el) {
-        el.removeEventListener('touchmove', preventNativeSwipe);
+        el.removeEventListener('touchmove', preventNativeSwipe, { capture: true });
       }
     };
   }, []);
@@ -1133,7 +1134,11 @@ function PanoramaViewer({ image }) {
     <div 
        ref={viewerRef} 
        className="w-full h-full cursor-grab active:cursor-grabbing bg-black" 
-       style={{ touchAction: 'none', overscrollBehavior: 'none' }} // Prevents mobile page scroll when panning
+       style={{ 
+         touchAction: 'none', 
+         WebkitTouchCallout: 'none',
+         overscrollBehavior: 'none' 
+       }} // Prevents mobile page scroll when panning
     />
   );
 }
