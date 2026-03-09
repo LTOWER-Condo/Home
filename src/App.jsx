@@ -1110,11 +1110,30 @@ function PanoramaViewer({ image }) {
     };
   }, [image]);
 
+  // Strictly prevent native browser touch behaviors (like swipe-to-exit or pull-to-refresh) inside the 360 viewer
+  useEffect(() => {
+    const el = viewerRef.current;
+    const preventNativeSwipe = (e) => {
+      // Allow Pannellum to handle the touch event for 360 panning, but stop the browser from swiping the page
+      e.preventDefault();
+    };
+
+    if (el) {
+      el.addEventListener('touchmove', preventNativeSwipe, { passive: false });
+    }
+
+    return () => {
+      if (el) {
+        el.removeEventListener('touchmove', preventNativeSwipe);
+      }
+    };
+  }, []);
+
   return (
     <div 
        ref={viewerRef} 
        className="w-full h-full cursor-grab active:cursor-grabbing bg-black" 
-       style={{ touchAction: 'none' }} // Prevents mobile page scroll when panning
+       style={{ touchAction: 'none', overscrollBehavior: 'none' }} // Prevents mobile page scroll when panning
     />
   );
 }
