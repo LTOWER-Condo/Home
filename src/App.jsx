@@ -1112,34 +1112,36 @@ function PanoramaViewer({ image }) {
 
   // Strictly prevent native browser touch behaviors (like swipe-to-exit or pull-to-refresh) inside the 360 viewer
   useEffect(() => {
-    const el = viewerRef.current;
-    const preventNativeSwipe = (e) => {
-      // Allow Pannellum to handle the touch event for 360 panning, but stop the browser from swiping the page
-      e.preventDefault();
+    const handleTouchMove = (e) => {
+      // If the target is inside our viewer, prevent default to stop browser swipe/scroll
+      // This includes when it's in full screen mode.
+      if (viewerRef.current && viewerRef.current.contains(e.target)) {
+        e.preventDefault();
+      }
     };
 
-    if (el) {
-      // Use capture: true to intercept the event before iPadOS or child elements can process it as a page swipe
-      el.addEventListener('touchmove', preventNativeSwipe, { passive: false, capture: true });
-    }
-
+    // Attach at the document level with capture: true and passive: false to catch all touch movements within the viewer early
+    document.addEventListener('touchmove', handleTouchMove, { passive: false, capture: true });
+    
     return () => {
-      if (el) {
-        el.removeEventListener('touchmove', preventNativeSwipe, { capture: true });
-      }
+      document.removeEventListener('touchmove', handleTouchMove, { capture: true });
     };
   }, []);
 
   return (
-    <div 
-       ref={viewerRef} 
-       className="w-full h-full cursor-grab active:cursor-grabbing bg-black" 
-       style={{ 
-         touchAction: 'none', 
-         WebkitTouchCallout: 'none',
-         overscrollBehavior: 'none' 
-       }} // Prevents mobile page scroll when panning
-    />
+    <>
+      <style>{`
+        .pannellum-container, .pannellum-container * {
+          touch-action: none !important;
+          -webkit-touch-callout: none !important;
+          overscroll-behavior: none !important;
+        }
+      `}</style>
+      <div 
+         ref={viewerRef} 
+         className="w-full h-full cursor-grab active:cursor-grabbing bg-black pannellum-container" 
+      />
+    </>
   );
 }
 
