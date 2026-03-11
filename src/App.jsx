@@ -23,6 +23,7 @@ const BedDouble = ({ className }) => <IconBase className={className}><path d="M2
 const Bath = ({ className }) => <IconBase className={className}><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" y1="5" x2="8" y2="7"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/></IconBase>;
 const MapPin = ({ className }) => <IconBase className={className}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></IconBase>;
 const ExternalLink = ({ className }) => <IconBase className={className}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></IconBase>;
+const CornerDownRight = ({ className }) => <IconBase className={className}><polyline points="15 10 20 15 15 20"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></IconBase>;
 
 // --- DATA ---
 const L1_GALLERY = [
@@ -38,44 +39,248 @@ const L1_GALLERY = [
   "./images/L1/DSC01371.jpg"
 ];
 
+const L2_TYPE_A_IMAGES = [
+  "./images/L2/Type A/IMG_4933.jpg",
+  "./images/L2/Type A/IMG_4934.jpg",
+  "./images/L2/Type A/IMG_4935.jpg",
+  "./images/L2/Type A/IMG_4936.jpg",
+  "./images/L2/Type A/IMG_4937.jpg",
+  "./images/L2/Type A/IMG_4938.jpg",
+  "./images/L2/Type A/IMG_4939.jpg",
+  "./images/L2/Type A/IMG_4940.jpg",
+  "./images/L2/Type A/IMG_4941.jpg",
+  "./images/L2/Type A/IMG_4942.jpg",
+  "./images/L2/Type A/IMG_4943.jpg",
+  "./images/L2/Type A/IMG_4944.jpg"
+];
+
+const L2_TYPE_B_IMAGES = [
+  "./images/L2/Type B/IMG_7818.jpg",
+  "./images/L2/Type B/IMG_7819.jpg",
+  "./images/L2/Type B/IMG_7821.jpg",
+  "./images/L2/Type B/IMG_7822.jpg",
+  "./images/L2/Type B/IMG_7823.jpg",
+  "./images/L2/Type B/IMG_7824.jpg",
+  "./images/L2/Type B/IMG_7826.jpg",
+  "./images/L2/Type B/IMG_7827.jpg",
+  "./images/L2/Type B/IMG_7828.jpg",
+  "./images/L2/Type B/IMG_7830.jpg",
+  "./images/L2/Type B/IMG_7831.jpg",
+  "./images/L2/Type B/IMG_7832.jpg",
+  "./images/L2/Type B/IMG_7833.jpg",
+  "./images/L2/Type B/IMG_7835.jpg",
+  "./images/L2/Type B/IMG_7837.jpg",
+  "./images/L2/Type B/IMG_7840.jpg",
+  "./images/L2/Type B/IMG_7841.jpg",
+  "./images/L2/Type B/IMG_7842.jpg",
+  "./images/L2/Type B/IMG_7844.jpg",
+  "./images/L2/Type B/IMG_7847.jpg",
+  "./images/L2/Type B/IMG_7851.jpg"
+];
+
+const L2_TYPE_C_IMAGES = [
+  "./images/L2/Type C/IMG_4898.jpg",
+  "./images/L2/Type C/IMG_4899.jpg",
+  "./images/L2/Type C/IMG_4900.jpg",
+  "./images/L2/Type C/IMG_4901.jpg",
+  "./images/L2/Type C/IMG_4902.jpg",
+  "./images/L2/Type C/IMG_4903.jpg",
+  "./images/L2/Type C/IMG_4904.jpg",
+  "./images/L2/Type C/IMG_4905.jpg",
+  "./images/L2/Type C/IMG_4906.jpg",
+  "./images/L2/Type C/IMG_4907.jpg",
+  "./images/L2/Type C/IMG_4908.jpg",
+  "./images/L2/Type C/IMG_4909.jpg"
+];
+
+const L2_TYPE_D_IMAGES = [
+  "./images/L2/Type D/IMG_4911.jpg",
+  "./images/L2/Type D/IMG_4912.jpg",
+  "./images/L2/Type D/IMG_4913.jpg",
+  "./images/L2/Type D/IMG_4914.jpg",
+  "./images/L2/Type D/IMG_4915.jpg",
+  "./images/L2/Type D/IMG_4916.jpg",
+  "./images/L2/Type D/IMG_4917.jpg",
+  "./images/L2/Type D/IMG_4918.jpg",
+  "./images/L2/Type D/IMG_4919.jpg",
+  "./images/L2/Type D/IMG_4920.jpg"
+];
+
+const L2_TYPE_E_IMAGES = [
+  "./images/L2/Type E/IMG_4889.jpg",
+  "./images/L2/Type E/IMG_4890.jpg",
+  "./images/L2/Type E/IMG_4891.jpg",
+  "./images/L2/Type E/IMG_4892.jpg",
+  "./images/L2/Type E/IMG_4893.jpg",
+  "./images/L2/Type E/IMG_4894.jpg",
+  "./images/L2/Type E/IMG_4895.jpg",
+  "./images/L2/Type E/IMG_4896.jpg",
+  "./images/L2/Type E/IMG_4897.jpg"
+];
+
+const L2_TYPE_F_IMAGES = [
+  "./images/L2/Type F/IMG_4870.jpg",
+  "./images/L2/Type F/IMG_4871.jpg",
+  "./images/L2/Type F/IMG_4872.jpg",
+  "./images/L2/Type F/IMG_4873.jpg",
+  "./images/L2/Type F/IMG_4875.jpg",
+  "./images/L2/Type F/IMG_4876.jpg",
+  "./images/L2/Type F/IMG_4877.jpg",
+  "./images/L2/Type F/IMG_4878.jpg"
+];
+
 const L2_GALLERY = [
-  "./images/L2/IMG_7818.jpg",
-  "./images/L2/IMG_7821.jpg",
-  "./images/L2/IMG_7822.jpg",
-  "./images/L2/IMG_7828.jpg",
-  "./images/L2/IMG_7829.jpg",
-  "./images/L2/IMG_7833.jpg",
-  "./images/L2/IMG_7835.jpg",
-  "./images/L2/IMG_7838.jpg",
-  "./images/L2/IMG_7841.jpg",
-  "./images/L2/IMG_7842.jpg"
+  ...L2_TYPE_A_IMAGES,
+  ...L2_TYPE_B_IMAGES,
+  ...L2_TYPE_C_IMAGES,
+  ...L2_TYPE_D_IMAGES,
+  ...L2_TYPE_E_IMAGES,
+  ...L2_TYPE_F_IMAGES
+];
+
+// L3 Type specific arrays
+const L3_TYPE_A_IMAGES = [
+  "./images/L3/Type A/IMG_2648.jpg",
+  "./images/L3/Type A/IMG_2650.jpg",
+  "./images/L3/Type A/IMG_2651.jpg",
+  "./images/L3/Type A/IMG_2652.jpg",
+  "./images/L3/Type A/IMG_2653.jpg",
+  "./images/L3/Type A/IMG_2654.jpg",
+  "./images/L3/Type A/IMG_9864.jpg",
+  "./images/L3/Type A/IMG_9865.jpg",
+  "./images/L3/Type A/IMG_9866.jpg",
+  "./images/L3/Type A/IMG_9867.jpg",
+  "./images/L3/Type A/IMG_9868.jpg",
+  "./images/L3/Type A/IMG_9869.jpg",
+  "./images/L3/Type A/IMG_9870.jpg"
+];
+
+const L3_TYPE_BCDE_IMAGES = [
+  "./images/L3/Type B,C,D,E/IMG_2635.jpg",
+  "./images/L3/Type B,C,D,E/IMG_2636.jpg",
+  "./images/L3/Type B,C,D,E/IMG_2642.jpg",
+  "./images/L3/Type B,C,D,E/IMG_2643.jpg",
+  "./images/L3/Type B,C,D,E/IMG_2644.jpg"
+];
+
+const L3_TYPE_G_IMAGES = [
+  "./images/L3/Type G/IMG_2637.jpg",
+  "./images/L3/Type G/IMG_2638.jpg",
+  "./images/L3/Type G/IMG_2639.jpg",
+  "./images/L3/Type G/IMG_2640.jpg",
+  "./images/L3/Type G/IMG_2641.jpg"
+];
+
+const L3_TYPE_H_IMAGES = [
+  "./images/L3/Type H/IMG_8953.jpg",
+  "./images/L3/Type H/IMG_8954.jpg",
+  "./images/L3/Type H/IMG_8955.jpg",
+  "./images/L3/Type H/IMG_8956.jpg",
+  "./images/L3/Type H/IMG_8957.jpg",
+  "./images/L3/Type H/IMG_8958.jpg",
+  "./images/L3/Type H/IMG_8959.jpg"
+];
+
+const L3_TYPE_I_IMAGES = [
+  "./images/L3/Type I/I 01.jpg",
+  "./images/L3/Type I/I 02.jpg",
+  "./images/L3/Type I/I 03.jpg",
+  "./images/L3/Type I/I 04.jpg",
+  "./images/L3/Type I/I 05.jpg",
+  "./images/L3/Type I/I 06.jpg",
+  "./images/L3/Type I/I 07.jpg",
+  "./images/L3/Type I/I 08.jpg",
+  "./images/L3/Type I/I 09.jpg"
+];
+
+const L3_TYPE_J_IMAGES = [
+  "./images/L3/Type J/IMG_8969.jpg",
+  "./images/L3/Type J/IMG_8970.jpg",
+  "./images/L3/Type J/IMG_8971.jpg",
+  "./images/L3/Type J/IMG_8972.jpg",
+  "./images/L3/Type J/IMG_8973.jpg",
+  "./images/L3/Type J/IMG_8974.jpg",
+  "./images/L3/Type J/IMG_8975.jpg",
+  "./images/L3/Type J/IMG_8976.jpg",
+  "./images/L3/Type J/IMG_8977.jpg"
+];
+
+const L3_TYPE_MK_IMAGES = [
+  "./images/L3/Type M,K/IMG_8960.jpg",
+  "./images/L3/Type M,K/IMG_8961.jpg",
+  "./images/L3/Type M,K/IMG_8962.jpg",
+  "./images/L3/Type M,K/IMG_8963.jpg",
+  "./images/L3/Type M,K/IMG_8964.jpg",
+  "./images/L3/Type M,K/IMG_8965.jpg",
+  "./images/L3/Type M,K/IMG_8966.jpg",
+  "./images/L3/Type M,K/IMG_8967.jpg",
+  "./images/L3/Type M,K/IMG_8968.jpg"
+];
+
+const L3_TYPE_NL_IMAGES = [
+  "./images/L3/Type N,L/IMG_3293.jpg",
+  "./images/L3/Type N,L/IMG_3294.jpg",
+  "./images/L3/Type N,L/IMG_3295.jpg",
+  "./images/L3/Type N,L/IMG_3296.jpg",
+  "./images/L3/Type N,L/IMG_3297.jpg",
+  "./images/L3/Type N,L/IMG_3298.jpg",
+  "./images/L3/Type N,L/IMG_3299.jpg"
+];
+
+const L3_TYPE_O_IMAGES = [
+  "./images/L3/Type O/IMG_3300.jpg",
+  "./images/L3/Type O/IMG_3301.jpg",
+  "./images/L3/Type O/IMG_3302.jpg",
+  "./images/L3/Type O/IMG_3303.jpg",
+  "./images/L3/Type O/IMG_3304.jpg",
+  "./images/L3/Type O/IMG_3305.jpg",
+  "./images/L3/Type O/IMG_3306.jpg"
+];
+
+const L3_TYPE_P_IMAGES = [
+  "./images/L3/Type P/IMG_3293.jpg",
+  "./images/L3/Type P/IMG_3294.jpg",
+  "./images/L3/Type P/IMG_3295.jpg",
+  "./images/L3/Type P/IMG_3296.jpg",
+  "./images/L3/Type P/IMG_3297.jpg",
+  "./images/L3/Type P/IMG_3298.jpg",
+  "./images/L3/Type P/IMG_3299.jpg"
+];
+
+const L3_TYPE_Q_IMAGES = [
+  "./images/L3/Type Q/IMG_8960.jpg",
+  "./images/L3/Type Q/IMG_8961.jpg",
+  "./images/L3/Type Q/IMG_8962.jpg",
+  "./images/L3/Type Q/IMG_8963.jpg",
+  "./images/L3/Type Q/IMG_8964.jpg",
+  "./images/L3/Type Q/IMG_8965.jpg",
+  "./images/L3/Type Q/IMG_8966.jpg",
+  "./images/L3/Type Q/IMG_8967.jpg",
+  "./images/L3/Type Q/IMG_8968.jpg"
+];
+
+const L3_TYPE_R_IMAGES = [
+  "./images/L3/Type R/IMG_8947.jpg",
+  "./images/L3/Type R/IMG_8948.jpg",
+  "./images/L3/Type R/IMG_8949.jpg",
+  "./images/L3/Type R/IMG_8950.jpg",
+  "./images/L3/Type R/IMG_8951.jpg",
+  "./images/L3/Type R/IMG_8952.jpg"
 ];
 
 const L3_GALLERY = [
-  "./images/L3/IMG_8294.jpg",
-  "./images/L3/IMG_8295.jpg",
-  "./images/L3/IMG_8296.jpg",
-  "./images/L3/IMG_8297.jpg",
-  "./images/L3/IMG_8298.jpg",
-  "./images/L3/IMG_8300.jpg",
-  "./images/L3/IMG_8301.jpg",
-  "./images/L3/IMG_8302.jpg",
-  "./images/L3/IMG_8303.jpg",
-  "./images/L3/IMG_8304.jpg",
-  "./images/L3/IMG_8305.jpg",
-  "./images/L3/IMG_8947.jpg",
-  "./images/L3/IMG_8948.jpg",
-  "./images/L3/IMG_8949.jpg",
-  "./images/L3/IMG_8950.jpg",
-  "./images/L3/IMG_8951.jpg",
-  "./images/L3/IMG_8952.jpg",
-  "./images/L3/IMG_8953.jpg",
-  "./images/L3/IMG_8954.jpg",
-  "./images/L3/IMG_8955.jpg",
-  "./images/L3/IMG_8956.jpg",
-  "./images/L3/IMG_8957.jpg",
-  "./images/L3/IMG_8958.jpg",
-  "./images/L3/IMG_8959.jpg"
+  ...L3_TYPE_A_IMAGES,
+  ...L3_TYPE_BCDE_IMAGES,
+  ...L3_TYPE_G_IMAGES,
+  ...L3_TYPE_H_IMAGES,
+  ...L3_TYPE_I_IMAGES,
+  ...L3_TYPE_J_IMAGES,
+  ...L3_TYPE_MK_IMAGES,
+  ...L3_TYPE_NL_IMAGES,
+  ...L3_TYPE_O_IMAGES,
+  ...L3_TYPE_P_IMAGES,
+  ...L3_TYPE_Q_IMAGES,
+  ...L3_TYPE_R_IMAGES
 ];
 
 // specific unit images
@@ -427,6 +632,793 @@ const UNIT_TYPES = [
   }
 ];
 
+const createPlaceholderUnits = (prefix, types) => types.map(type => ({
+  id: `${prefix}_${type.replace(/,/g, '_')}`,
+  name: `ប្រភេទ ${type}`,
+  beds: 1,
+  baths: 1,
+  size: "TBD sqm",
+  images: ["./images/cover.jpg"],
+  roomImages: ["./images/cover.jpg"],
+  features: [
+    "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+    "ចង្រ្កានបាយ និងតុបាយ",
+    "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+  ]
+}));
+
+const L1_UNIT_TYPES = [
+  { 
+    id: 'L1_A', 
+    name: "ប្រភេទ A", 
+    beds: 2, 
+    baths: 2, 
+    size: "87 sqm", 
+    images: ["./images/L1/Master Plan/Type A.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ A 87 ម៉ែត្រការ៉េ (98 ម៉ែត្រការ៉េ)",
+      "បន្ទប់កែង",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_B', 
+    name: "ប្រភេទ B", 
+    beds: 2, 
+    baths: 2, 
+    size: "85 sqm", 
+    images: ["./images/L1/Master Plan/Type B.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ B 85 ម៉ែត្រការ៉េ (95.75 ម៉ែត្រការ៉េ)",
+      "បន្ទប់កែង",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_C', 
+    name: "ប្រភេទ C", 
+    beds: 2, 
+    baths: 1, 
+    size: "65 sqm", 
+    images: ["./images/L1/Master Plan/Type C.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ C 65 ម៉ែត្រការ៉េ (73.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់កែង",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_D', 
+    name: "ប្រភេទ D", 
+    beds: 1, 
+    baths: 1, 
+    size: "58 sqm", 
+    images: ["./images/L1/Master Plan/Type D.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ D 58 ម៉ែត្រការ៉េ (65.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់កែង",
+      "បន្ទប់គេង 1",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_E', 
+    name: "ប្រភេទ E", 
+    beds: 2, 
+    baths: 1, 
+    size: "54.50 sqm", 
+    images: ["./images/L1/Master Plan/Type E.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ E 54.50 ម៉ែត្រការ៉េ (61.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_F', 
+    name: "ប្រភេទ F", 
+    beds: 2, 
+    baths: 1, 
+    size: "54 sqm", 
+    images: ["./images/L1/Master Plan/Type F.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ F 54 ម៉ែត្រការ៉េ (61 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_G', 
+    name: "ប្រភេទ G", 
+    beds: 2, 
+    baths: 1, 
+    size: "53.50 sqm", 
+    images: ["./images/L1/Master Plan/Type G.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ G 53.50 ម៉ែត្រការ៉េ (60.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_H', 
+    name: "ប្រភេទ H", 
+    beds: 2, 
+    baths: 1, 
+    size: "53 sqm", 
+    images: ["./images/L1/Master Plan/Type H.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ H 53 ម៉ែត្រការ៉េ (60 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_I', 
+    name: "ប្រភេទ I", 
+    beds: 2, 
+    baths: 1, 
+    size: "52.50 sqm", 
+    images: ["./images/L1/Master Plan/Type I.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ I 52.50 ម៉ែត្រការ៉េ (59 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_J', 
+    name: "ប្រភេទ J", 
+    beds: 2, 
+    baths: 1, 
+    size: "47 sqm", 
+    images: ["./images/L1/Master Plan/Type J.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ J 47 ម៉ែត្រការ៉េ (53 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_K', 
+    name: "ប្រភេទ K", 
+    beds: 1, 
+    baths: 1, 
+    size: "46.50 sqm", 
+    images: ["./images/L1/Master Plan/Type K.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ K 46.50 ម៉ែត្រការ៉េ (52.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 1",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_L', 
+    name: "ប្រភេទ L", 
+    beds: 2, 
+    baths: 1, 
+    size: "46.50 sqm", 
+    images: ["./images/L1/Master Plan/Type L.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ L 46.50 ម៉ែត្រការ៉េ (52.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 2",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_M', 
+    name: "ប្រភេទ M", 
+    beds: 1, 
+    baths: 1, 
+    size: "45 sqm", 
+    images: ["./images/L1/Master Plan/Type M.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ M 45 ម៉ែត្រការ៉េ (50.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 1",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_N', 
+    name: "ប្រភេទ N", 
+    beds: 1, 
+    baths: 1, 
+    size: "45 sqm", 
+    images: ["./images/L1/Master Plan/Type N.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ N 45 ម៉ែត្រការ៉េ (50.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 1",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_O', 
+    name: "ប្រភេទ O", 
+    beds: 1, 
+    baths: 1, 
+    size: "44 sqm", 
+    images: ["./images/L1/Master Plan/Type O.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ O 44 ម៉ែត្រការ៉េ (49.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 1",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L1_P', 
+    name: "ប្រភេទ P", 
+    beds: 1, 
+    baths: 1, 
+    size: "43 sqm", 
+    images: ["./images/L1/Master Plan/Type P.jpg"], 
+    roomImages: L1_GALLERY, 
+    features: [
+      "ជាន់ក្រោមដី ចំណតរថយន្ដ-ម៉ូតូ",
+      "ជាន់ផ្ទាល់ដី ការិយាល័យ ស្តារម៉ាត និងហាងទំនិញផ្សេងៗ",
+      "ជាន់ទី 1 ដល់ទី 6 ចំណតរថយន្ដ",
+      "ជាន់ទី 7 ដល់ 21 ជាន់ស្នាក់នៅ",
+      "ខុនដូ 2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ P 43 ម៉ែត្រការ៉េ (48.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង 1",
+      "បន្ទប់ទឹក 1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  }
+];
+
+const L2_UNIT_TYPES = [
+  { 
+    id: 'L2_A', 
+    name: "ប្រភេទ A", 
+    beds: 2, 
+    baths: 1, 
+    size: "87.50 sqm", 
+    images: ["./images/L2/Master Plan/Type A1_V1.jpg"], 
+    roomImages: L2_TYPE_A_IMAGES, 
+    features: [
+      "ជាន់ទី8ដល់22",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ A 87.50ម៉ែត្រការ៉េ",
+      "បន្ទប់កែង",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://www.kujiale.com/cloud/design/3FO3QEV8K1Y1/show"
+  },
+  { 
+    id: 'L2_B', 
+    name: "ប្រភេទ B", 
+    beds: 2, 
+    baths: 1, 
+    size: "61 sqm", 
+    images: ["./images/L2/Master Plan/Type B1_V1.jpg"], 
+    roomImages: L2_TYPE_B_IMAGES, 
+    features: [
+      "ជាន់ទី8ដល់22",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ B 61ម៉ែត្រការ៉េ",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ] 
+  },
+  { 
+    id: 'L2_C', 
+    name: "ប្រភេទ C", 
+    beds: 2, 
+    baths: 1, 
+    size: "60 sqm", 
+    images: ["./images/L2/Master Plan/Type C1-C4_V1.jpg"], 
+    roomImages: L2_TYPE_C_IMAGES, 
+    features: [
+      "ជាន់ទី8ដល់22",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ C 60ម៉ែត្រការ៉េ",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3PUNFU41N/show"
+  },
+  { 
+    id: 'L2_D', 
+    name: "ប្រភេទ D", 
+    beds: 2, 
+    baths: 1, 
+    size: "60 sqm", 
+    images: ["./images/L2/Master Plan/Type D1_V1.jpg"], 
+    roomImages: L2_TYPE_D_IMAGES, 
+    features: [
+      "ជាន់ទី8ដល់22",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ D 60ម៉ែត្រការ៉េ",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3PTUXTS1S/show"
+  },
+  { 
+    id: 'L2_E', 
+    name: "ប្រភេទ E", 
+    beds: 1, 
+    baths: 1, 
+    size: "47 sqm", 
+    images: ["./images/L2/Master Plan/Type E1_V1.jpg"], 
+    roomImages: L2_TYPE_E_IMAGES, 
+    features: [
+      "ជាន់ទី8ដល់22",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ E 47ម៉ែត្រការ៉េ",
+      "បន្ទប់គេង1",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3PTLGSP89/show"
+  },
+  { 
+    id: 'L2_F', 
+    name: "ប្រភេទ F", 
+    beds: 1, 
+    baths: 1, 
+    size: "46.50 sqm", 
+    images: ["./images/L2/Master Plan/Type F1_V1.jpg"], 
+    roomImages: L2_TYPE_F_IMAGES, 
+    features: [
+      "ជាន់ទី8ដល់22",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ F 46.50ម៉ែត្រការ៉េ",
+      "បន្ទប់គេង1",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3PLOEKYQB/show"
+  }
+];
+
+const L3_UNIT_TYPES = [
+  { 
+    id: 'L3_A', 
+    name: "ប្រភេទ A", 
+    beds: 1, 
+    baths: 1, 
+    size: "53 sqm", 
+    images: ["./images/L3/Master Plan/A.jpg"], 
+    roomImages: L3_TYPE_A_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ A 53ម៉ែត្រការ៉េ (59.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់កែង",
+      "បន្ទប់គេង1",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLinks: [
+      { label: "3D Showroom 53m2", url: "https://yun.kujiale.com/design/3FO3MCINCSHF/show" },
+      { label: "3D Showroom 58m2", url: "https://yun.kujiale.com/design/3FO3J5IVG846/show" }
+    ]
+  },
+  { 
+    id: 'L3_B_C_D_E', 
+    name: "ប្រភេទ B,C,D,E", 
+    beds: 1, 
+    baths: 1, 
+    size: "36.50 sqm", 
+    images: ["./images/L3/Master Plan/B,D.jpg", "./images/L3/Master Plan/C,E.jpg"], 
+    roomImages: L3_TYPE_BCDE_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ B,C,D,E 36.50ម៉ែត្រការ៉េ (41 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង1",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/cloud/design/3FO3MCNP9W1B/show"
+  },
+  { 
+    id: 'L3_G', 
+    name: "ប្រភេទ G", 
+    beds: 1, 
+    baths: 1, 
+    size: "46 sqm", 
+    images: ["./images/L3/Master Plan/G.jpg"], 
+    roomImages: L3_TYPE_G_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ G 46ម៉ែត្រការ៉េ (51.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង1",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3MCLYA7MV/show"
+  },
+  { 
+    id: 'L3_H', 
+    name: "ប្រភេទ H", 
+    beds: 2, 
+    baths: 1, 
+    size: "52 sqm", 
+    images: ["./images/L3/Master Plan/H.jpg"], 
+    roomImages: L3_TYPE_H_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ H 52ម៉ែត្រការ៉េ (58.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3IVSLASF0/show"
+  },
+  { 
+    id: 'L3_I', 
+    name: "ប្រភេទ I", 
+    beds: 1, 
+    baths: 1, 
+    size: "40 sqm", 
+    images: ["./images/L3/Master Plan/I.jpg"], 
+    roomImages: L3_TYPE_I_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ I 40ម៉ែត្រការ៉េ (45 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង1",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3MCLYA7MV/show"
+  },
+  { 
+    id: 'L3_J', 
+    name: "ប្រភេទ J", 
+    beds: 2, 
+    baths: 2, 
+    size: "79 sqm", 
+    images: ["./images/L3/Master Plan/J.jpg"], 
+    roomImages: L3_TYPE_J_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ J 79ម៉ែត្រការ៉េ (88.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់កែង",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3ITA8H21S/show"
+  },
+  { 
+    id: 'L3_M_K', 
+    name: "ប្រភេទ M,K", 
+    beds: 2, 
+    baths: 1, 
+    size: "54.50 sqm", 
+    images: ["./images/L3/Master Plan/M,K.jpg"], 
+    roomImages: L3_TYPE_MK_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ M,K 54.50ម៉ែត្រការ៉េ (61 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3ISRIB9D7/show"
+  },
+  { 
+    id: 'L3_N_L', 
+    name: "ប្រភេទ N,L", 
+    beds: 2, 
+    baths: 1, 
+    size: "54.50 sqm", 
+    images: ["./images/L3/Master Plan/N,L.jpg"], 
+    roomImages: L3_TYPE_NL_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ N,L 54.50ម៉ែត្រការ៉េ (61 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3M6JDG89S/show"
+  },
+  { 
+    id: 'L3_O', 
+    name: "ប្រភេទ O", 
+    beds: 2, 
+    baths: 2, 
+    size: "84 sqm", 
+    images: ["./images/L3/Master Plan/O.jpg"], 
+    roomImages: L3_TYPE_O_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ O 84ម៉ែត្រការ៉េ (94 ម៉ែត្រការ៉េ)",
+      "បន្ទប់កែង",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក2",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3M7MBSDPB/show"
+  },
+  { 
+    id: 'L3_P', 
+    name: "ប្រភេទ P", 
+    beds: 2, 
+    baths: 1, 
+    size: "51 sqm", 
+    images: ["./images/L3/Master Plan/P.jpg"], 
+    roomImages: L3_TYPE_P_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ P 51ម៉ែត្រការ៉េ (57 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3M6JDG89S/show"
+  },
+  { 
+    id: 'L3_Q', 
+    name: "ប្រភេទ Q", 
+    beds: 2, 
+    baths: 1, 
+    size: "53.50 sqm", 
+    images: ["./images/L3/Master Plan/Q.jpg"], 
+    roomImages: L3_TYPE_Q_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ Q 53.50ម៉ែត្រការ៉េ (60 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3ISRIB9D7/show"
+  },
+  { 
+    id: 'L3_R', 
+    name: "ប្រភេទ R", 
+    beds: 2, 
+    baths: 1, 
+    size: "54 sqm", 
+    images: ["./images/L3/Master Plan/R.jpg"], 
+    roomImages: L3_TYPE_R_IMAGES, 
+    features: [
+      "ជាន់ទី9ដល់24",
+      "ខុនដូ2ជាន់",
+      "ផ្នែកខាងក្នុង ខុនដូ អិលថៅវើ",
+      "ប្រភេទ R 54ម៉ែត្រការ៉េ (60.50 ម៉ែត្រការ៉េ)",
+      "បន្ទប់គេង2",
+      "បន្ទប់ទឹក1",
+      "កន្លែងទទួលភ្ញៀវធំទូលាយ",
+      "ចង្រ្កានបាយ និងតុបាយ",
+      "វ៉េរ៉ង់ដា ផ្ទាល់ខ្លួន"
+    ],
+    vrLink: "https://yun.kujiale.com/design/3FO3IVBD6PBU/show"
+  }
+];
+
+const PROJECT_UNITS = {
+  'ltower-1': L1_UNIT_TYPES,
+  'ltower-2': L2_UNIT_TYPES,
+  'ltower-3': L3_UNIT_TYPES,
+  'ltower-3-new': UNIT_TYPES
+};
+
 const TABS = [
   { id: 'home', label: 'Home' },
   { id: 'ltower-1', label: 'LTOWER 1' },
@@ -472,16 +1464,18 @@ export default function App() {
 
   const handleNextUnit = () => {
     if (!selectedUnit) return;
-    const currentIndex = UNIT_TYPES.findIndex(u => u.id === selectedUnit.id);
-    const nextIndex = (currentIndex + 1) % UNIT_TYPES.length;
-    setSelectedUnit(UNIT_TYPES[nextIndex]);
+    const currentUnits = PROJECT_UNITS[activeTab] || UNIT_TYPES;
+    const currentIndex = currentUnits.findIndex(u => u.id === selectedUnit.id);
+    const nextIndex = (currentIndex + 1) % currentUnits.length;
+    setSelectedUnit(currentUnits[nextIndex]);
   };
 
   const handlePrevUnit = () => {
     if (!selectedUnit) return;
-    const currentIndex = UNIT_TYPES.findIndex(u => u.id === selectedUnit.id);
-    const prevIndex = (currentIndex - 1 + UNIT_TYPES.length) % UNIT_TYPES.length;
-    setSelectedUnit(UNIT_TYPES[prevIndex]);
+    const currentUnits = PROJECT_UNITS[activeTab] || UNIT_TYPES;
+    const currentIndex = currentUnits.findIndex(u => u.id === selectedUnit.id);
+    const prevIndex = (currentIndex - 1 + currentUnits.length) % currentUnits.length;
+    setSelectedUnit(currentUnits[prevIndex]);
   };
 
   return (
@@ -540,12 +1534,24 @@ export default function App() {
 
       <main className="pt-20">
         {activeTab === 'home' && <HomeTab />}
-        {activeTab === 'ltower-1' && <ProjectTab project={PROJECT_HISTORY[0]} />}
-        {activeTab === 'ltower-2' && <ProjectTab project={PROJECT_HISTORY[1]} />}
-        {activeTab === 'ltower-3' && <ProjectTab project={PROJECT_HISTORY[2]} />}
+        {activeTab === 'ltower-1' && (
+          <ProjectTab project={PROJECT_HISTORY[0]}>
+            <TypeSection units={PROJECT_UNITS['ltower-1']} setSelectedUnit={setSelectedUnit} />
+          </ProjectTab>
+        )}
+        {activeTab === 'ltower-2' && (
+          <ProjectTab project={PROJECT_HISTORY[1]}>
+            <TypeSection units={PROJECT_UNITS['ltower-2']} setSelectedUnit={setSelectedUnit} />
+          </ProjectTab>
+        )}
+        {activeTab === 'ltower-3' && (
+          <ProjectTab project={PROJECT_HISTORY[2]}>
+            <TypeSection units={PROJECT_UNITS['ltower-3']} setSelectedUnit={setSelectedUnit} />
+          </ProjectTab>
+        )}
         {activeTab === 'ltower-3-new' && (
           <ProjectTab project={PROJECT_HISTORY[3]}>
-            <TypeSection setSelectedUnit={setSelectedUnit} />
+            <TypeSection units={PROJECT_UNITS['ltower-3-new']} setSelectedUnit={setSelectedUnit} />
           </ProjectTab>
         )}
         {activeTab === 'about-us' && <AboutTab />}
@@ -653,17 +1659,21 @@ function ProjectTab({ project, children }) {
   // Gallery Pagination State
   const IMAGES_PER_PAGE = 6;
   const [galleryPage, setGalleryPage] = useState(0);
-  const totalPages = Math.ceil(project.gallery.length / IMAGES_PER_PAGE);
+  const totalPages = Math.ceil((project.gallery?.length || 0) / IMAGES_PER_PAGE);
 
   const handleGalleryNext = () => {
-    setGalleryPage((prev) => (prev + 1) % totalPages);
+    if (totalPages > 0) {
+      setGalleryPage((prev) => (prev + 1) % totalPages);
+    }
   };
 
   const handleGalleryPrev = () => {
-    setGalleryPage((prev) => (prev - 1 + totalPages) % totalPages);
+    if (totalPages > 0) {
+      setGalleryPage((prev) => (prev - 1 + totalPages) % totalPages);
+    }
   };
 
-  const currentGalleryImages = project.gallery.slice(
+  const currentGalleryImages = (project.gallery || []).slice(
     galleryPage * IMAGES_PER_PAGE, 
     (galleryPage + 1) * IMAGES_PER_PAGE
   );
@@ -674,16 +1684,20 @@ function ProjectTab({ project, children }) {
 
   const handleNext = (e) => {
     e.stopPropagation();
-    setLightboxIndex((prev) => (prev + 1) % project.gallery.length);
+    if (project.gallery) {
+      setLightboxIndex((prev) => (prev + 1) % project.gallery.length);
+    }
   };
 
   const handlePrev = (e) => {
     e.stopPropagation();
-    setLightboxIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+    if (project.gallery) {
+      setLightboxIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+    }
   };
 
   useEffect(() => {
-    if (lightboxIndex === null) return;
+    if (lightboxIndex === null || !project.gallery) return;
 
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowRight') handleNext(e);
@@ -693,7 +1707,7 @@ function ProjectTab({ project, children }) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxIndex, project.gallery.length]);
+  }, [lightboxIndex, project.gallery]);
 
   return (
     <div className="animate-in fade-in duration-700 min-h-screen flex flex-col bg-[#0a0a0a]">
@@ -752,65 +1766,67 @@ function ProjectTab({ project, children }) {
            </div>
 
            {/* 4. Gallery (Desktop & Mobile) */}
-           <div className="relative w-full mb-12">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-white text-sm uppercase tracking-widest flex items-center">
-                   <span className="w-8 h-[1px] bg-[#FF9644] mr-4"></span>
-                   Showroom Gallery
-                </h3>
-                {/* Navigation Arrows for Desktop Grid */}
-                <div className="hidden lg:flex items-center gap-2">
-                   <button onClick={handleGalleryPrev} className="p-1 hover:text-[#FF9644] transition-colors"><ChevronLeft className="w-5 h-5"/></button>
-                   <button onClick={handleGalleryNext} className="p-1 hover:text-[#FF9644] transition-colors"><ChevronRight className="w-5 h-5"/></button>
+           {project.gallery && project.gallery.length > 0 && (
+             <div className="relative w-full mb-12">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-white text-sm uppercase tracking-widest flex items-center">
+                     <span className="w-8 h-[1px] bg-[#FF9644] mr-4"></span>
+                     Showroom Gallery
+                  </h3>
+                  {/* Navigation Arrows for Desktop Grid */}
+                  <div className="hidden lg:flex items-center gap-2">
+                     <button onClick={handleGalleryPrev} className="p-1 hover:text-[#FF9644] transition-colors"><ChevronLeft className="w-5 h-5"/></button>
+                     <button onClick={handleGalleryNext} className="p-1 hover:text-[#FF9644] transition-colors"><ChevronRight className="w-5 h-5"/></button>
+                  </div>
                 </div>
-              </div>
-              
-              {/* Desktop Grid Gallery - 3 Cols, 2 Rows (6 Images), Smaller Size */}
-              <div className="hidden lg:grid grid-cols-3 gap-3">
-                 {currentGalleryImages.map((img, idx) => {
-                    // Calculate actual index in full gallery for lightbox
-                    const realIndex = (galleryPage * IMAGES_PER_PAGE) + idx;
-                    return (
-                      <div 
-                        key={idx} 
-                        onClick={() => setLightboxIndex(realIndex)}
-                        className="h-32 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300 relative group"
-                      >
-                         <img src={img} alt="Gallery" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-                      </div>
-                    );
-                 })}
-              </div>
+                
+                {/* Desktop Grid Gallery - 3 Cols, 2 Rows (6 Images), Smaller Size */}
+                <div className="hidden lg:grid grid-cols-3 gap-3">
+                   {currentGalleryImages.map((img, idx) => {
+                      // Calculate actual index in full gallery for lightbox
+                      const realIndex = (galleryPage * IMAGES_PER_PAGE) + idx;
+                      return (
+                        <div 
+                          key={idx} 
+                          onClick={() => setLightboxIndex(realIndex)}
+                          className="h-32 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300 relative group"
+                        >
+                           <img src={img} alt="Gallery" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                           <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                      );
+                   })}
+                </div>
 
-              {/* Mobile Auto-scrolling Gallery (Unchanged for Mobile) */}
-              <div className="block lg:hidden overflow-hidden whitespace-nowrap mask-gradient relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-                 <div 
-                   className="inline-block animate-marquee hover:pause-animation"
-                   style={{ animationDuration: `${Math.max(project.gallery.length * 4, 40)}s` }}
-                 >
-                    {project.gallery.map((img, idx) => (
-                      <div 
-                        key={idx} 
-                        onClick={() => setLightboxIndex(idx)}
-                        className="inline-block w-48 h-32 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
-                      >
-                         <img src={img} alt="Gallery" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
-                      </div>
-                    ))}
-                    {project.gallery.map((img, idx) => (
-                      <div 
-                        key={`dup-${idx}`} 
-                        onClick={() => setLightboxIndex(idx)}
-                        className="inline-block w-48 h-32 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
-                      >
-                         <img src={img} alt="Gallery" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
-                      </div>
-                    ))}
-                 </div>
-                 <p className="text-xs text-gray-600 mt-2 text-right italic">Click image to expand</p>
-              </div>
-           </div>
+                {/* Mobile Auto-scrolling Gallery (Unchanged for Mobile) */}
+                <div className="block lg:hidden overflow-hidden whitespace-nowrap mask-gradient relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
+                   <div 
+                     className="inline-block animate-marquee hover:pause-animation"
+                     style={{ animationDuration: `${Math.max(project.gallery.length * 4, 40)}s` }}
+                   >
+                      {project.gallery.map((img, idx) => (
+                        <div 
+                          key={idx} 
+                          onClick={() => setLightboxIndex(idx)}
+                          className="inline-block w-48 h-32 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
+                        >
+                           <img src={img} alt="Gallery" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                        </div>
+                      ))}
+                      {project.gallery.map((img, idx) => (
+                        <div 
+                          key={`dup-${idx}`} 
+                          onClick={() => setLightboxIndex(idx)}
+                          className="inline-block w-48 h-32 mr-4 rounded-sm overflow-hidden cursor-pointer border border-white/10 hover:border-[#FF9644] transition-all duration-300"
+                        >
+                           <img src={img} alt="Gallery" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                        </div>
+                      ))}
+                   </div>
+                   <p className="text-xs text-gray-600 mt-2 text-right italic">Click image to expand</p>
+                </div>
+             </div>
+           )}
 
            {/* 5. Map */}
            <div className="w-full h-64 lg:h-80 rounded-2xl overflow-hidden border border-[#34220a]/50 relative shadow-2xl">
@@ -834,7 +1850,7 @@ function ProjectTab({ project, children }) {
            </div>
            
            {/* Lightbox Modal */}
-           {lightboxIndex !== null && (
+           {lightboxIndex !== null && project.gallery && (
              <div 
                className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
                onClick={() => setLightboxIndex(null)}
@@ -900,19 +1916,21 @@ function ProjectTab({ project, children }) {
   );
 }
 
-function TypeSection({ setSelectedUnit }) {
+function TypeSection({ units, setSelectedUnit }) {
+  if (!units) return null;
+
   return (
     <div className="py-20 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-20">
         <h2 className="text-4xl font-light text-white mb-4">Available Units</h2>
         <p className="text-gray-300 max-w-2xl mx-auto">
-          Explore our exclusive collection of 10 distinct 2-floor luxury unit types. Each residence is meticulously crafted to elevate your living experience.
+          Explore our exclusive collection of {units.length} distinct unit types. Each residence is meticulously crafted to elevate your living experience.
         </p>
         <div className="w-16 h-[1px] bg-[#FF9644] mx-auto mt-8"></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {UNIT_TYPES.map((unit) => (
+        {units.map((unit) => (
           <div 
             key={unit.id}
             onClick={() => setSelectedUnit(unit)}
@@ -924,9 +1942,11 @@ function TypeSection({ setSelectedUnit }) {
                 alt={unit.name} 
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute top-4 right-4 bg-[#0a0a0a]/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs text-[#FF9644]">
-                2 Floors
-              </div>
+              {unit.features.some(f => f.includes("2ជាន់")) && (
+                <div className="absolute top-4 right-4 bg-[#0a0a0a]/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs text-[#FF9644]">
+                  2 Floors
+                </div>
+              )}
             </div>
             <div className="p-6">
               <h3 className="text-lg text-white mb-2 font-medium">{unit.name}</h3>
@@ -1201,6 +2221,9 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
     }
   };
 
+  // Check if unit has "បន្ទប់កែង" feature
+  const hasCornerRoom = unit.features?.some(f => f.includes("បន្ទប់កែង"));
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
       <style>{`
@@ -1232,14 +2255,14 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
 
         {/* Left Side Image Section with Click to Expand */}
         <div 
-          className="w-full md:w-1/2 h-64 sm:h-[350px] md:h-auto md:min-h-full relative group bg-black cursor-pointer shrink-0"
+          className="w-full md:w-1/2 h-64 sm:h-[350px] md:h-auto md:min-h-full relative group bg-black cursor-pointer shrink-0 flex items-center justify-center"
           onClick={() => setFullScreenType('floorplan')}
         >
-          <img src={unit.images[imgIdx]} alt={unit.name} className="w-full h-full object-contain md:object-cover group-hover:opacity-80 transition-opacity" />
+          <img src={unit.images[imgIdx]} alt={unit.name} className="w-full h-full object-contain group-hover:opacity-80 transition-opacity" />
           
           {/* Overlay text to hint clicking */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none bg-black/20">
-             <div className="bg-black/60 text-white px-4 py-2 rounded-full backdrop-blur-sm flex items-center gap-2">
+             <div className="bg-black/60 text-white px-4 py-2 rounded-full backdrop-blur-sm flex items-center gap-2 shadow-xl">
                 <Maximize2 className="w-4 h-4 text-[#FF9644]" /> 
                 <span className="text-sm uppercase tracking-widest">ពង្រីករូបភាពប្លង់</span>
              </div>
@@ -1268,7 +2291,7 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
         
         <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-10 flex flex-col md:overflow-y-auto shrink-0">
           <span className="inline-block px-3 py-1 bg-[#FF9644]/10 text-[#FF9644] font-semibold border border-[#FF9644]/30 text-xs uppercase tracking-widest w-fit mb-6 shrink-0">
-            Premium 2-Floor Unit
+            {unit.features.some(f => f.includes("2ជាន់")) ? "Premium 2-Floor Unit" : "Premium Unit"}
           </span>
           
           {/* Unit Title and Navigation */}
@@ -1305,6 +2328,12 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
               <p className="text-sm text-gray-400 mb-1">បន្ទប់ទឹក (Bathrooms)</p>
               <p className="text-xl text-white font-medium flex items-center"><Bath className="w-5 h-5 mr-2 text-[#FF9644]"/> {unit.baths} បន្ទប់</p>
             </div>
+            {hasCornerRoom && (
+              <div>
+                <p className="text-sm text-gray-400 mb-1">លក្ខណៈពិសេស (Feature)</p>
+                <p className="text-xl text-[#FF9644] font-medium flex items-center"><CornerDownRight className="w-5 h-5 mr-2"/> បន្ទប់កែង</p>
+              </div>
+            )}
           </div>
 
           <div className="mb-8 shrink-0">
@@ -1391,7 +2420,21 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
               សាកសួរព័ត៌មានបន្ថែម (Inquire)
             </a>
             
-            {unit.vrLink && (
+            {unit.vrLinks ? (
+              <div className="grid grid-cols-2 gap-3">
+                 {unit.vrLinks.map((link, idx) => (
+                   <a 
+                     key={idx}
+                     href={link.url} 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     className="block w-full text-center bg-transparent border-2 border-[#FF9644] text-[#FF9644] hover:bg-[#FF9644] hover:text-[#0a0a0a] font-bold py-3 transition-colors duration-300 uppercase tracking-widest text-xs flex justify-center items-center gap-2"
+                   >
+                     <Film className="w-4 h-4" /> {link.label}
+                   </a>
+                 ))}
+              </div>
+            ) : unit.vrLink ? (
               <a 
                 href={unit.vrLink} 
                 target="_blank" 
@@ -1400,7 +2443,7 @@ function UnitModal({ unit, onClose, onNextUnit, onPrevUnit }) {
               >
                 <Film className="w-5 h-5" /> 3D Showroom
               </a>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
